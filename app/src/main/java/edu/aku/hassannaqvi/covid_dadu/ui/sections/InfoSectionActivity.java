@@ -104,7 +104,11 @@ public class InfoSectionActivity extends AppCompatActivity {
 
         form = new Form();
         form.setSysdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+
+        form.setA01(bi.a01.getText().toString());
+        form.setA02(bi.a02.getText().toString());
         form.setA03(MainApp.userName);
+
         form.setDeviceID(MainApp.appInfo.getDeviceID());
         form.setDevicetagID(MainApp.appInfo.getTagName());
         form.setAppversion(MainApp.appInfo.getAppVersion());
@@ -121,8 +125,6 @@ public class InfoSectionActivity extends AppCompatActivity {
 
         form.setRefno(bi.a05a.getText().toString().trim().isEmpty() ? "-1" : bi.a05a.getText().toString());
 
-        form.setA01(bi.a01.getText().toString());
-        form.setA02(bi.a02.getText().toString());
         form.setA06(bi.a0601.isChecked() ? "1"
                 : bi.a0602.isChecked() ? "2"
                 : bi.a0603.isChecked() ? "3"

@@ -39,6 +39,7 @@ import edu.aku.hassannaqvi.covid_dadu.models.VersionApp;
 import edu.aku.hassannaqvi.covid_dadu.ui.list_activity.FormsReportCluster;
 import edu.aku.hassannaqvi.covid_dadu.ui.list_activity.FormsReportDate;
 import edu.aku.hassannaqvi.covid_dadu.ui.list_activity.PendingFormsActivity;
+import edu.aku.hassannaqvi.covid_dadu.ui.sections.InfoSectionActivity;
 import edu.aku.hassannaqvi.covid_dadu.utils.AndroidUtilityKt;
 import edu.aku.hassannaqvi.covid_dadu.utils.AppUtilsKt;
 import edu.aku.hassannaqvi.covid_dadu.utils.CreateTable;
@@ -302,10 +303,10 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
     public void openSpecificActivity(View v) {
         Intent oF = null;
         switch (v.getId()) {
-          /*  case R.id.formA:
-                oF = new Intent(this, SectionAActivity.class);
+            case R.id.formA:
+                oF = new Intent(this, InfoSectionActivity.class);
                 break;
-            case R.id.formB:
+            /*  case R.id.formB:
                 oF = new Intent(this, SectionBActivity.class);
                 break;
             case R.id.formC:

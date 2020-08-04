@@ -3,7 +3,6 @@
 
 
     <data>
-
         <import type="android.view.View" />
 
         <variable
@@ -59,11 +58,11 @@
                         android:id="@+id/a01"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
-                        android:hint="@string/a01"
+                        android:gravity="center"
+                        android:hint="DD-MM-YYYY"
                         android:onTextChanged="@{callback.a01OnTextChanged}"
                         app:maxDate="CR_DATE"
-                        app:minDate="07/07/2020" />
+                        app:minDate="01/07/2020" />
 
                 </LinearLayout>
 
@@ -105,9 +104,11 @@
                         android:id="@+id/a02"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="HH:mm" />
 
-                        android:hint="@string/a02" />
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!--a03  Input-->
@@ -315,7 +316,7 @@
                         android:id="@+id/a05a"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        android:maxLength="13"
                         android:hint="@string/a05a"
                         android:inputType="number" />
 
@@ -353,6 +354,7 @@
                             android:layout_alignTop="@id/qtxt_a05b"
                             android:layout_alignBottom="@id/qtxt_a05b"
                             android:text="@string/Q_a05b" />
+
                     </RelativeLayout>
 
                     <RadioGroup
@@ -371,9 +373,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/a05b2" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!--a06  Radio-->
             <androidx.cardview.widget.CardView
@@ -465,6 +471,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <LinearLayout
                 android:id="@+id/lla07"
@@ -805,23 +812,22 @@
                                         style="@style/sub"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-
                                         android:text="@string/a13dd" />
 
                                     <com.edittextpicker.aliazaz.EditTextPicker
                                         android:id="@+id/a13dd"
-
                                         style="@style/textInput"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-
-                                        android:hint="@string/a13dd"
+                                        android:gravity="center"
+                                        android:hint="##"
+                                        android:maxLength="2"
                                         android:inputType="number"
                                         app:defaultValue="98"
-                                        app:mask="##"
                                         app:maxValue="31"
                                         app:minValue="1"
                                         app:type="range" />
+
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -834,23 +840,22 @@
                                         style="@style/sub"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-
                                         android:text="@string/a13mm" />
 
                                     <com.edittextpicker.aliazaz.EditTextPicker
                                         android:id="@+id/a13mm"
-
                                         style="@style/textInput"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-
-                                        android:hint="@string/a13mm"
+                                        android:gravity="center"
+                                        android:hint="##"
+                                        android:maxLength="2"
                                         android:inputType="number"
                                         app:defaultValue="98"
-                                        app:mask="##"
                                         app:maxValue="11"
                                         app:minValue="1"
                                         app:type="range" />
+
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -863,27 +868,29 @@
                                         style="@style/sub"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-
                                         android:text="@string/a13yy" />
 
                                     <com.edittextpicker.aliazaz.EditTextPicker
                                         android:id="@+id/a13yy"
-
                                         style="@style/textInput"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-
-                                        android:hint="@string/a13yy"
+                                        android:gravity="center"
+                                        android:hint="####"
+                                        android:maxLength="4"
                                         android:inputType="number"
                                         android:onTextChanged="@{callback.a13yyOnTextChanged}"
                                         app:defaultValue="9998"
-                                        app:mask="####"
                                         app:maxValue="2020"
                                         app:minValue="1930"
                                         app:type="range" />
+
                                 </LinearLayout>
+
                             </LinearLayout>
+
                         </LinearLayout>
+
                     </androidx.cardview.widget.CardView>
 
                     <!--a14  Title-->
@@ -933,22 +940,21 @@
                                         style="@style/sub"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-
                                         android:text="@string/a14yy" />
 
                                     <com.edittextpicker.aliazaz.EditTextPicker
                                         android:id="@+id/a14yy"
-
                                         style="@style/textInput"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-
-                                        android:hint="@string/a14yy"
+                                        android:gravity="center"
+                                        android:hint="##"
+                                        android:maxLength="2"
                                         android:inputType="number"
-                                        app:mask="##"
                                         app:maxValue="99"
                                         app:minValue="0"
                                         app:type="range" />
+
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -961,25 +967,27 @@
                                         style="@style/sub"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-
                                         android:text="@string/a14mm" />
 
                                     <com.edittextpicker.aliazaz.EditTextPicker
                                         android:id="@+id/a14mm"
-
                                         style="@style/textInput"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-
-                                        android:hint="@string/a14mm"
+                                        android:gravity="center"
+                                        android:hint="##"
+                                        android:maxLength="2"
                                         android:inputType="number"
-                                        app:mask="##"
                                         app:maxValue="11"
                                         app:minValue="0"
                                         app:type="range" />
+
                                 </LinearLayout>
+
                             </LinearLayout>
+
                         </LinearLayout>
+
                     </androidx.cardview.widget.CardView>
 
                     <!--a15  Radio-->
@@ -1715,7 +1723,9 @@
                     </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
+
             </LinearLayout>
+
 
             <!--EndButton LinearLayout-->
             <LinearLayout
@@ -1744,7 +1754,10 @@
                     android:onClick="@{() -> callback.BtnContinue()}"
                     android:text="Save"
                     android:textColor="@color/white" />
+
             </LinearLayout>
+            <!--EndButton LinearLayout-->
+
         </LinearLayout>
 
     </ScrollView>

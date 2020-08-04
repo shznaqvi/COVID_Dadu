@@ -61,6 +61,12 @@
         <activity
             android:name=".ui.other.MainActivity"
             android:theme="@style/AppThemeEnglish" />
+
+        <activity
+            android:name=".ui.sections.InfoSectionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu" />
+
         <activity
             android:name=".ui.other.EndingActivity"
             android:screenOrientation="portrait"
