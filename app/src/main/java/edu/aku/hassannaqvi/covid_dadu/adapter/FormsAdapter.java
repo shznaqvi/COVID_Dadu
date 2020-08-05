@@ -99,11 +99,11 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
         }
 
         //holder.hhno.setText(form.get(position).getRefno() + " \t\t(" + form.get(position).getA01() + ")");
-        holder.hhno.setText(form.get(position).getA05());
+        holder.hhno.setText(form.get(position).getS1q1());
         holder.istatus.setText(iStatus);
         holder.sysdate.setText(form.get(position).getSysdate());
         holder.istatus.setTextColor(iColor);
-        holder.cluster.setText(form.get(position).getRefno());
+        holder.cluster.setText(form.get(position).getPid());
 
 
     }

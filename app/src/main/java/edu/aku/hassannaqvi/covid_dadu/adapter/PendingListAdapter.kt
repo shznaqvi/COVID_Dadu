@@ -18,8 +18,8 @@ class PendingListAdapter(private val mContext: Context, private var mList: List<
 
     override fun onBindViewHolder(holder: ViewHolder, i: Int) {
         holder.bi.parentLayout.tag = i
-        holder.bi.cluster.text = "CLUSTER: ".plus(mList[i].refno)
-        holder.bi.hhno.text = "HHNO: ".plus(mList[i].a05)
+        holder.bi.cluster.text = "CLUSTER: ".plus(mList[i].pid)
+        holder.bi.hhno.text = "HHNO: ".plus(mList[i].s1q1)
     }
 
     override fun getItemCount(): Int {
