@@ -72,6 +72,16 @@
             android:theme="@style/AppThemeUrdu" />
 
         <activity
+            android:name=".ui.sections.SectionAActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu" />
+
+        <activity
+            android:name=".ui.sections.SectionBActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu" />
+
+        <activity
             android:name=".ui.other.EndingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
