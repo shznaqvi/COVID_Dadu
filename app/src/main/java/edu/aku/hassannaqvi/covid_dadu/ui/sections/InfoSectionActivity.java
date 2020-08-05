@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.covid_dadu.ui.sections;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
@@ -29,7 +30,7 @@ import edu.aku.hassannaqvi.covid_dadu.databinding.ActivityInfoSectionBinding;
 import edu.aku.hassannaqvi.covid_dadu.datecollection.AgeModel;
 import edu.aku.hassannaqvi.covid_dadu.datecollection.DateRepository;
 import edu.aku.hassannaqvi.covid_dadu.models.Form;
-import edu.aku.hassannaqvi.covid_dadu.models.SectionSelection;
+import edu.aku.hassannaqvi.covid_dadu.ui.other.EndingActivity;
 import edu.aku.hassannaqvi.covid_dadu.utils.AppUtilsKt;
 
 import static edu.aku.hassannaqvi.covid_dadu.core.MainApp.form;
@@ -55,16 +56,8 @@ public class InfoSectionActivity extends AppCompatActivity {
 
 
     private void setupSkip() {
-
-        bi.a06.setOnCheckedChangeListener((group, checkedId) -> {
-            Clear.clearAllFields(bi.lla07);
-        });
-
-        bi.a07.setOnCheckedChangeListener((group, checkId) -> {
-            Clear.clearAllFields(bi.lla08);
-        });
-
-
+        bi.a06.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla07));
+        bi.a07.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla08));
     }
 
 
@@ -76,8 +69,8 @@ public class InfoSectionActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         if (UpdateDB()) {
-            //finish();
-            //   startActivity(new Intent(this, bi.a0702.isChecked() ? EndingActivity.class : SectionBActivity.class));
+            finish();
+            startActivity(new Intent(this, EndingActivity.class));
         } else {
             Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
         }
@@ -105,7 +98,7 @@ public class InfoSectionActivity extends AppCompatActivity {
         form = new Form();
         form.setSysdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
 
-        form.setA01(bi.a01.getText().toString());
+        /*form.setA01(bi.a01.getText().toString());
         form.setA02(bi.a02.getText().toString());
         form.setA03(MainApp.userName);
 
@@ -229,7 +222,7 @@ public class InfoSectionActivity extends AppCompatActivity {
 
         form.setA23(bi.a2301.isChecked() ? "1"
                 : bi.a2302.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
       /*  JSONObject json = new JSONObject();
 
@@ -345,7 +338,7 @@ public class InfoSectionActivity extends AppCompatActivity {
 
         form.setsInfo(json.toString());*/
 
-        form.setSecSelection(new SectionSelection(calculatedDOB, bi.a14yy.getText().toString(), bi.a1502.isChecked(), a16, bi.a2002.isChecked()));
+        //form.setSecSelection(new SectionSelection(calculatedDOB, bi.a14yy.getText().toString(), bi.a1502.isChecked(), a16, bi.a2002.isChecked()));
 
     }
 

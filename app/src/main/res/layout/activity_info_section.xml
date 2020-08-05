@@ -1699,7 +1699,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignTop="@id/qtxt_a23"
                                     android:layout_alignBottom="@id/qtxt_a23"
-                                    android:text="@string/Q_a23" />
+                                    android:text="a23" />
+
                             </RelativeLayout>
 
                             <RadioGroup
@@ -1719,7 +1720,9 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/a2302" />
                             </RadioGroup>
+
                         </LinearLayout>
+
                     </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
