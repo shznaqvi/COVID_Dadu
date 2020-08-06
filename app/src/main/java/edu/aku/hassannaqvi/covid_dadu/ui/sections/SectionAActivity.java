@@ -91,6 +91,7 @@ public class SectionAActivity extends AppCompatActivity {
         form.setS1q4(bi.s1q4.getText().toString());
         form.setS1q5(bi.s1q5.getText().toString());
         form.setS1q6(bi.s1q6.getText().toString());
+        MainApp.setGPS(this);
 
     }
 
