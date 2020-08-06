@@ -56,7 +56,14 @@ class EndingActivity : AppCompatActivity() {
     }
 
     private fun saveDraft() {
-        val statusValue = if (bi.a0601.isChecked) "1" else if (bi.a0602.isChecked) "2" else if (bi.a0603.isChecked) "3" else if (bi.a0604.isChecked) "4" else if (bi.a0605.isChecked) "5" else if (bi.a0606.isChecked) "6" else if (bi.a0607.isChecked) "96" else "0"
+        val statusValue = if (bi.a0601.isChecked) "1"
+        else if (bi.a0602.isChecked) "2"
+        else if (bi.a0603.isChecked) "3"
+        else if (bi.a0604.isChecked) "4"
+        else if (bi.a0605.isChecked) "5"
+        else if (bi.a0606.isChecked) "6"
+        else if (bi.a0607.isChecked) "96"
+        else "0"
         form.istatus = statusValue
         form.istatus96x = bi.a0696x.text.toString()
         form.endingdatetime = SimpleDateFormat("dd-MM-yy HH:mm").format(Date().time)

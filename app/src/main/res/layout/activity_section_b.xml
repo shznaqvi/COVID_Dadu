@@ -75,6 +75,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
+                            android:gravity="center"
+                            android:inputType="number"
                             android:hint="@string/days"
                             android:tag="s2q101"
                             android:text='@{s2q101.checked ? s2q101x.getText().toString() : ""}'
@@ -91,7 +93,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q102"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q102"
                             android:text='@{s2q102.checked ? s2q102x.getText().toString() : ""}'
                             android:visibility='@{s2q102.checked? View.VISIBLE : View.GONE}' />
@@ -107,7 +111,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q103"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q103"
                             android:text='@{s2q103.checked ? s2q103x.getText().toString() : ""}'
                             android:visibility='@{s2q103.checked? View.VISIBLE : View.GONE}' />
@@ -123,7 +129,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q104"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q104"
                             android:text='@{s2q104.checked ? s2q104x.getText().toString() : ""}'
                             android:visibility='@{s2q104.checked? View.VISIBLE : View.GONE}' />
@@ -139,7 +147,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q105"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q105"
                             android:text='@{s2q105.checked ? s2q105x.getText().toString() : ""}'
                             android:visibility='@{s2q105.checked? View.VISIBLE : View.GONE}' />
@@ -155,7 +165,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q106"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q106"
                             android:text='@{s2q106.checked ? s2q106x.getText().toString() : ""}'
                             android:visibility='@{s2q106.checked? View.VISIBLE : View.GONE}' />
@@ -171,7 +183,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q107"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q107"
                             android:text='@{s2q107.checked ? s2q107x.getText().toString() : ""}'
                             android:visibility='@{s2q107.checked? View.VISIBLE : View.GONE}' />
@@ -187,7 +201,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q108"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q108"
                             android:text='@{s2q108.checked ? s2q108x.getText().toString() : ""}'
                             android:visibility='@{s2q108.checked? View.VISIBLE : View.GONE}' />
@@ -203,7 +219,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q109"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q109"
                             android:text='@{s2q109.checked ? s2q109x.getText().toString() : ""}'
                             android:visibility='@{s2q109.checked? View.VISIBLE : View.GONE}' />
@@ -219,7 +237,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q110"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q110"
                             android:text='@{s2q110.checked ? s2q110x.getText().toString() : ""}'
                             android:visibility='@{s2q110.checked? View.VISIBLE : View.GONE}' />
@@ -235,7 +255,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q111"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q111"
                             android:text='@{s2q111.checked ? s2q111x.getText().toString() : ""}'
                             android:visibility='@{s2q111.checked? View.VISIBLE : View.GONE}' />
@@ -251,7 +273,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q112"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q112"
                             android:text='@{s2q112.checked ? s2q112x.getText().toString() : ""}'
                             android:visibility='@{s2q112.checked? View.VISIBLE : View.GONE}' />
@@ -267,7 +291,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q113"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q113"
                             android:text='@{s2q113.checked ? s2q113x.getText().toString() : ""}'
                             android:visibility='@{s2q113.checked? View.VISIBLE : View.GONE}' />
@@ -283,7 +309,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q114"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q114"
                             android:text='@{s2q114.checked ? s2q114x.getText().toString() : ""}'
                             android:visibility='@{s2q114.checked? View.VISIBLE : View.GONE}' />
@@ -299,7 +327,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q115"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q115"
                             android:text='@{s2q115.checked ? s2q115x.getText().toString() : ""}'
                             android:visibility='@{s2q115.checked? View.VISIBLE : View.GONE}' />
@@ -315,7 +345,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/s2q116"
+                            android:gravity="center"
+                            android:hint="@string/days"
+                            android:inputType="number"
                             android:tag="s2q116"
                             android:text='@{s2q116.checked ? s2q116x.getText().toString() : ""}'
                             android:visibility='@{s2q116.checked? View.VISIBLE : View.GONE}' />
@@ -357,6 +389,7 @@
                             android:layout_alignTop="@id/qtxt_s2q2"
                             android:layout_alignBottom="@id/qtxt_s2q2"
                             android:text="@string/Q_s2q2" />
+
                     </RelativeLayout>
 
                     <RadioGroup
@@ -375,8 +408,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/s2q202" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -410,6 +446,7 @@
                             android:layout_alignTop="@id/qtxt_s2q3"
                             android:layout_alignBottom="@id/qtxt_s2q3"
                             android:text="@string/Q_s2q3" />
+
                     </RelativeLayout>
 
                     <RadioGroup
@@ -901,19 +938,21 @@
                             android:layout_alignTop="@id/qtxt_s2q7_2"
                             android:layout_alignBottom="@id/qtxt_s2q7_2"
                             android:text="@string/Q_s2q7_2" />
+
                     </RelativeLayout>
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
+
+                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
                         android:id="@+id/s2q7_2"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/s2q7_2"
-                        app:mask="##"
-                        app:maxValue="0"
-                        app:minValue="0"
-                        app:type="range" />
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="DD-MM-YYYY"
+                        app:maxDate="CR_DATE"
+                        app:minDate="CR_DATE" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
