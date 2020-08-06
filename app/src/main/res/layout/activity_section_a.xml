@@ -107,8 +107,8 @@
                     <EditText
                         android:id="@+id/pid"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_height="wrap_content"
+
                         android:hint="@string/pid"
                         android:inputType="number" />
 
@@ -153,8 +153,8 @@
                     <EditText
                         android:id="@+id/s1q1"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_height="wrap_content"
+
                         android:hint="@string/s1q1" />
 
                 </LinearLayout>
@@ -197,17 +197,20 @@
                     <RadioGroup
                         android:id="@+id/s1q2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/s1q201"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@string/s1q201" />
 
                         <RadioButton
                             android:id="@+id/s1q202"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@string/s1q202" />
 
@@ -254,8 +257,8 @@
                     <EditText
                         android:id="@+id/s1q3"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_height="wrap_content"
+
                         android:hint="@string/s1q3"
                         android:inputType="number" />
 
@@ -299,8 +302,8 @@
                     <EditText
                         android:id="@+id/s1q4"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_height="wrap_content"
+
                         android:hint="@string/s1q4" />
 
                 </LinearLayout>
@@ -344,8 +347,8 @@
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/s1q5"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_height="wrap_content"
+
                         android:hint="@string/s1q5"
                         android:inputType="number"
                         app:mask="##"
@@ -393,8 +396,8 @@
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/s1q6"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_height="wrap_content"
+
                         android:hint="@string/s1q6"
                         android:inputType="number"
                         app:mask="##"

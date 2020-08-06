@@ -73,8 +73,8 @@
                         <EditText
                             android:id="@+id/s2q101x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:inputType="number"
                             android:hint="@string/days"
@@ -91,8 +91,8 @@
                         <EditText
                             android:id="@+id/s2q102x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -109,8 +109,8 @@
                         <EditText
                             android:id="@+id/s2q103x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -127,8 +127,8 @@
                         <EditText
                             android:id="@+id/s2q104x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -145,8 +145,8 @@
                         <EditText
                             android:id="@+id/s2q105x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -163,8 +163,8 @@
                         <EditText
                             android:id="@+id/s2q106x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -181,8 +181,8 @@
                         <EditText
                             android:id="@+id/s2q107x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -199,8 +199,8 @@
                         <EditText
                             android:id="@+id/s2q108x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -217,8 +217,8 @@
                         <EditText
                             android:id="@+id/s2q109x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -235,8 +235,8 @@
                         <EditText
                             android:id="@+id/s2q110x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -253,8 +253,8 @@
                         <EditText
                             android:id="@+id/s2q111x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -271,8 +271,8 @@
                         <EditText
                             android:id="@+id/s2q112x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -289,8 +289,8 @@
                         <EditText
                             android:id="@+id/s2q113x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -307,8 +307,8 @@
                         <EditText
                             android:id="@+id/s2q114x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -325,8 +325,8 @@
                         <EditText
                             android:id="@+id/s2q115x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -343,8 +343,8 @@
                         <EditText
                             android:id="@+id/s2q116x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:gravity="center"
                             android:hint="@string/days"
                             android:inputType="number"
@@ -395,17 +395,20 @@
                     <RadioGroup
                         android:id="@+id/s2q2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/s2q201"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@string/s2q201" />
 
                         <RadioButton
                             android:id="@+id/s2q202"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@string/s2q202" />
 
@@ -452,17 +455,20 @@
                     <RadioGroup
                         android:id="@+id/s2q3"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/s2q301"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@string/s2q301" />
 
                         <RadioButton
                             android:id="@+id/s2q302"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="@string/s2q302" />
 
@@ -507,41 +513,41 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/s2q3_1a" />
 
                     <EditText
                         android:id="@+id/s2q31"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_height="wrap_content"
+
                         android:hint="@string/s2q3_1a" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/s2q3_1b" />
 
                     <EditText
                         android:id="@+id/s2q32"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_height="wrap_content"
+
                         android:hint="@string/s2q3_1b" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/s2q3_1c" />
 
                     <EditText
                         android:id="@+id/s2q33"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_height="wrap_content"
+
                         android:hint="@string/s2q3_1c" />
 
                 </LinearLayout>
@@ -704,8 +710,8 @@
                         <EditText
                             android:id="@+id/s2q596x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
+
                             android:hint="@string/s2q596"
                             android:tag="s2q596"
                             android:text='@{s2q596.checked ? s2q596x.getText().toString() : ""}'
