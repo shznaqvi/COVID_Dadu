@@ -63,10 +63,11 @@ class EndingActivity : AppCompatActivity() {
         else if (bi.a0605.isChecked) "5"
         else if (bi.a0606.isChecked) "6"
         else if (bi.a0607.isChecked) "96"
-        else "0"
+        else "-1"
         form.istatus = statusValue
-        form.istatus96x = bi.a0696x.text.toString()
+        form.istatus96x = if (bi.a0696x.text.toString().trim().isEmpty()) "-1" else bi.a0696x.text.toString()
         form.endingdatetime = SimpleDateFormat("dd-MM-yy HH:mm").format(Date().time)
+
     }
 
 
