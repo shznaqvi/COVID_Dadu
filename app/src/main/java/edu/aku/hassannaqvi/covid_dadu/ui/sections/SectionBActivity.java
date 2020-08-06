@@ -165,7 +165,7 @@ public class SectionBActivity extends AppCompatActivity {
                 : bi.s2q71b.isChecked() ? "2"
                 : "-1");
 
-        form.setS2q72(bi.s2q72.getText().toString());
+        form.setS2q72(bi.s2q72.getText().toString().trim().isEmpty() ? "-1" : bi.s2q72.getText().toString());
 
 
     }
