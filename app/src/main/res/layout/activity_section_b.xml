@@ -96,17 +96,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q101" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q101x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q101"
                                 android:text='@{s2q101.checked ? s2q101x.getText().toString() : ""}'
-                                android:visibility='@{s2q101.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q101.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q102"
@@ -114,17 +117,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q102" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q102x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q102"
                                 android:text='@{s2q102.checked ? s2q102x.getText().toString() : ""}'
-                                android:visibility='@{s2q102.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q102.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q103"
@@ -132,17 +138,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q103" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q103x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q103"
                                 android:text='@{s2q103.checked ? s2q103x.getText().toString() : ""}'
-                                android:visibility='@{s2q103.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q103.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q104"
@@ -150,17 +159,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q104" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q104x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q104"
                                 android:text='@{s2q104.checked ? s2q104x.getText().toString() : ""}'
-                                android:visibility='@{s2q104.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q104.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q105"
@@ -168,17 +180,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q105" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q105x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q105"
                                 android:text='@{s2q105.checked ? s2q105x.getText().toString() : ""}'
-                                android:visibility='@{s2q105.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q105.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q106"
@@ -186,17 +201,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q106" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q106x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q106"
                                 android:text='@{s2q106.checked ? s2q106x.getText().toString() : ""}'
-                                android:visibility='@{s2q106.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q106.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q107"
@@ -204,17 +222,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q107" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q107x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q107"
                                 android:text='@{s2q107.checked ? s2q107x.getText().toString() : ""}'
-                                android:visibility='@{s2q107.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q107.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q108"
@@ -222,17 +243,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q108" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q108x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q108"
                                 android:text='@{s2q108.checked ? s2q108x.getText().toString() : ""}'
-                                android:visibility='@{s2q108.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q108.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q109"
@@ -240,17 +264,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q109" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q109x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q109"
                                 android:text='@{s2q109.checked ? s2q109x.getText().toString() : ""}'
-                                android:visibility='@{s2q109.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q109.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q110"
@@ -258,17 +285,19 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q110" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q110x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q110"
                                 android:text='@{s2q110.checked ? s2q110x.getText().toString() : ""}'
-                                android:visibility='@{s2q110.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q110.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q111"
@@ -276,17 +305,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q111" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q111x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q111"
                                 android:text='@{s2q111.checked ? s2q111x.getText().toString() : ""}'
-                                android:visibility='@{s2q111.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q111.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q112"
@@ -294,17 +326,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q112" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q112x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q112"
                                 android:text='@{s2q112.checked ? s2q112x.getText().toString() : ""}'
-                                android:visibility='@{s2q112.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q112.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q113"
@@ -312,17 +347,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q113" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q113x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q113"
                                 android:text='@{s2q113.checked ? s2q113x.getText().toString() : ""}'
-                                android:visibility='@{s2q113.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q113.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q114"
@@ -330,17 +368,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q114" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q114x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q114"
                                 android:text='@{s2q114.checked ? s2q114x.getText().toString() : ""}'
-                                android:visibility='@{s2q114.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q114.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q115"
@@ -348,17 +389,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q115" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q115x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q115"
                                 android:text='@{s2q115.checked ? s2q115x.getText().toString() : ""}'
-                                android:visibility='@{s2q115.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q115.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <CheckBox
                                 android:id="@+id/s2q116"
@@ -366,17 +410,20 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/s2q116" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/s2q116x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:gravity="center"
+                                android:maxLength="2"
                                 android:hint="@string/days"
                                 android:inputType="number"
                                 android:tag="s2q116"
                                 android:text='@{s2q116.checked ? s2q116x.getText().toString() : ""}'
-                                android:visibility='@{s2q116.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility='@{s2q116.checked? View.VISIBLE : View.GONE}'
+                                app:maxValue="20"
+                                app:minValue="1"
+                                app:type="range" />
 
                         </LinearLayout>
 
