@@ -231,8 +231,10 @@
     <string name="s2q506">گردن جي بيماري</string>
     <string name="s2q507"> ڦڦڙن جي پراڻي بيماري</string>
     <string name="s2q508">ڪينسر</string>
-    <string name="s2q509">پراڻي دماغي يا جسماني بيماري </string>
-    <string name="s2q596">ٻيو ڪجھ مهرباني ڪري وضاحت ڪريو </string>
+    <string name="s2q509"> پراڻي دماغي يا جسماني بيماري </string>
+    <string name="s2q596"> ٻيو ڪجھ </string>
+    <string name="s2q596x"> مهرباني ڪري وضاحت ڪريو </string>
+    <string name="s2q597"> ڪو به نه </string>
     <string name="s2q6">ڇا مريض ٽريج استقباليه ڊيسڪ تان مشوراحاصل ڪيا؟</string>
     <string name="s2q601">ها</string>
     <string name="s2q602">نه</string>
@@ -245,6 +247,13 @@
     <string name="s2q7_1a">ها</string>
     <string name="s2q7_1b"> نه </string>
     <string name="s2q7_2">ٽيسٽ جي تاريخ لکو</string>
+
+    <string name="istatus"> انٽرويو جو نتيجو </string>
+    <string name="istatusa"> مڪمل ٿيو </string>
+    <string name="istatusb"> نامڪمل </string>
+    <string name="istatusc"> انڪار ڪري ڇڏيو </string>
+    <string name="istatus96"> ٻيو ڪجھ </string>
+    <string name="istatus96x"> وضاحت ڪريو </string>
 
     <!--Question IDs-->
     <string name='Q_a'>a</string>

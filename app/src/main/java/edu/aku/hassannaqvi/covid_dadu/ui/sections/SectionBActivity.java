@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.covid_dadu.R;
@@ -35,8 +36,16 @@ public class SectionBActivity extends AppCompatActivity {
 
 
     private void setupSkip() {
-        /*bi.a06.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla07));
-        bi.a07.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla08));*/
+
+        bi.s2q597.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                bi.s2q5check.setTag(-1);
+                Clear.clearAllFields(bi.s2q5check, false);
+            } else {
+                bi.s2q5check.setTag(0);
+                Clear.clearAllFields(bi.s2q5check, true);
+            }
+        });
     }
 
 
@@ -132,32 +141,23 @@ public class SectionBActivity extends AppCompatActivity {
                 : "-1");
 
         form.setS2q501(bi.s2q501.isChecked() ? "1" : "-1");
-
         form.setS2q502(bi.s2q502.isChecked() ? "2" : "-1");
-
         form.setS2q503(bi.s2q503.isChecked() ? "3" : "-1");
-
         form.setS2q504(bi.s2q504.isChecked() ? "4" : "-1");
-
         form.setS2q505(bi.s2q505.isChecked() ? "5" : "-1");
-
         form.setS2q506(bi.s2q506.isChecked() ? "6" : "-1");
-
         form.setS2q507(bi.s2q507.isChecked() ? "7" : "-1");
-
         form.setS2q508(bi.s2q508.isChecked() ? "8" : "-1");
-
         form.setS2q509(bi.s2q509.isChecked() ? "9" : "-1");
-
         form.setS2q596(bi.s2q596.isChecked() ? "96" : "-1");
-
         form.setS2q596x(bi.s2q596x.getText().toString().trim().isEmpty() ? "-1" : bi.s2q596x.getText().toString());
+        form.setS2q596(bi.s2q597.isChecked() ? "97" : "-1");
 
         form.setS2q6(bi.s2q601.isChecked() ? "1"
                 : bi.s2q602.isChecked() ? "2"
                 : "-1");
 
-        form.setS2q7(bi.s2q701.isChecked() ? "1"
+        /*form.setS2q7(bi.s2q701.isChecked() ? "1"
                 : bi.s2q702.isChecked() ? "2"
                 : "-1");
 
@@ -165,7 +165,7 @@ public class SectionBActivity extends AppCompatActivity {
                 : bi.s2q71b.isChecked() ? "2"
                 : "-1");
 
-        form.setS2q72(bi.s2q72.getText().toString().trim().isEmpty() ? "-1" : bi.s2q72.getText().toString());
+        form.setS2q72(bi.s2q72.getText().toString().trim().isEmpty() ? "-1" : bi.s2q72.getText().toString());*/
 
 
     }

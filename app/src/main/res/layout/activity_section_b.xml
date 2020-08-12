@@ -714,7 +714,9 @@
                                 android:layout_alignTop="@id/qtxt_s2q5"
                                 android:layout_alignBottom="@id/qtxt_s2q5"
                                 android:text="@string/Q_s2q5" />
+
                         </RelativeLayout>
+
 
                         <LinearLayout
                             android:id="@+id/s2q5check"
@@ -788,13 +790,23 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789"
-                                android:hint="@string/s2q596"
+                                android:hint="@string/s2q596x"
                                 android:inputType="text"
                                 android:tag="s2q596"
                                 android:text='@{s2q596.checked ? s2q596x.getText().toString() : ""}'
                                 android:visibility='@{s2q596.checked? View.VISIBLE : View.GONE}' />
+
                         </LinearLayout>
+
+                        <CheckBox
+                            android:id="@+id/s2q597"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:tag="-1"
+                            android:text="@string/s2q597" />
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
 
@@ -870,7 +882,7 @@
 
 
                 <!-- s2q7_title  Title   -->
-                <androidx.cardview.widget.CardView style="@style/cardView">
+                <!--<androidx.cardview.widget.CardView style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -885,8 +897,8 @@
                 </androidx.cardview.widget.CardView>
 
 
-                <!-- s2q7  Radio   -->
-                <androidx.cardview.widget.CardView
+                &lt;!&ndash; s2q7  Radio   &ndash;&gt;
+                &lt;!&ndash;<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVs2q7"
                     style="@style/cardView">
 
@@ -938,7 +950,7 @@
                 </androidx.cardview.widget.CardView>
 
 
-                <!-- s2q7_1  Radio   -->
+                &lt;!&ndash; s2q7_1  Radio   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVs2q7_1"
                     style="@style/cardView">
@@ -988,10 +1000,10 @@
                                 android:text="@string/s2q7_1b" />
                         </RadioGroup>
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>&ndash;&gt;
 
 
-                <!-- s2q7_2  Input-Numeric   -->
+                &lt;!&ndash; s2q7_2  Input-Numeric   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVs2q7_2"
                     style="@style/cardView">
@@ -1036,7 +1048,7 @@
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
 
                 <!--EndButton LinearLayout-->

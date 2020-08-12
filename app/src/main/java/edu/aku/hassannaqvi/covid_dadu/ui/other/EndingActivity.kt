@@ -23,24 +23,16 @@ class EndingActivity : AppCompatActivity() {
 
         val check = intent.getBooleanExtra("complete", false)
         if (check) {
-            bi.a0601.isEnabled = true
-            bi.a0602.isEnabled = false
-            bi.a0603.isEnabled = false
-            bi.a0604.isEnabled = false
-            bi.a0605.isEnabled = false
-            bi.a0606.isEnabled = false
-            bi.a0607.isEnabled = false
-            bi.a0696.isEnabled = false
+            bi.istatusa.isEnabled = true
+            bi.istatusb.isEnabled = false
+            bi.istatusc.isEnabled = false
+            bi.istatus96.isEnabled = false
         } else {
             val bool = intent.getIntExtra(FSTATUS_END_FLAG, 0)
-            bi.a0601.isEnabled = false
-            bi.a0602.isEnabled = bool == 1
-            bi.a0603.isEnabled = bool == 1
-            bi.a0604.isEnabled = bool == 1
-            bi.a0605.isEnabled = bool == 1
-            bi.a0606.isEnabled = bool == 1
-            bi.a0607.isEnabled = bool == 2
-            bi.a0696.isEnabled = bool == 2
+            bi.istatusa.isEnabled = false
+            bi.istatusb.isEnabled = bool == 1
+            bi.istatusc.isEnabled = bool == 1
+            bi.istatus96.isEnabled = bool == 1
         }
     }
 
@@ -56,16 +48,13 @@ class EndingActivity : AppCompatActivity() {
     }
 
     private fun saveDraft() {
-        val statusValue = if (bi.a0601.isChecked) "1"
-        else if (bi.a0602.isChecked) "2"
-        else if (bi.a0603.isChecked) "3"
-        else if (bi.a0604.isChecked) "4"
-        else if (bi.a0605.isChecked) "5"
-        else if (bi.a0606.isChecked) "6"
-        else if (bi.a0607.isChecked) "96"
+        val statusValue = if (bi.istatusa.isChecked) "1"
+        else if (bi.istatusb.isChecked) "2"
+        else if (bi.istatusc.isChecked) "3"
+        else if (bi.istatus96.isChecked) "96"
         else "-1"
         form.istatus = statusValue
-        form.istatus96x = if (bi.a0696x.text.toString().trim().isEmpty()) "-1" else bi.a0696x.text.toString()
+        form.istatus96x = if (bi.istatus96x.text.toString().trim().isEmpty()) "-1" else bi.istatus96x.text.toString()
         form.endingdatetime = SimpleDateFormat("dd-MM-yy HH:mm").format(Date().time)
 
     }
