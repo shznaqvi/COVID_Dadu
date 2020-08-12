@@ -30,9 +30,9 @@ class EndingActivity : AppCompatActivity() {
         } else {
             val bool = intent.getIntExtra(FSTATUS_END_FLAG, 0)
             bi.istatusa.isEnabled = false
-            bi.istatusb.isEnabled = bool == 1
-            bi.istatusc.isEnabled = bool == 1
-            bi.istatus96.isEnabled = bool == 1
+            bi.istatusb.isEnabled = true
+            bi.istatusc.isEnabled = true
+            bi.istatus96.isEnabled = true
         }
     }
 
