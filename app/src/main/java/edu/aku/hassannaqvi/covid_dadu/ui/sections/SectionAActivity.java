@@ -75,7 +75,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         form = new Form();
         form.setSysdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
-        form.setFormdate(bi.formdate.getText().toString());
+        form.setFormdate(form.getSysdate());
         form.setPid(bi.pid.getText().toString());
         form.setUsername(MainApp.userName);
         form.setDeviceID(MainApp.appInfo.getDeviceID());

@@ -178,8 +178,8 @@
     <string name='Q_a22pos'>a22pos</string>
 
 
-    <string name="section1basicinformation_mainheading"> بنيادي معلومات: </string>
-    <string name="section2symptoms_mainheading"> علامتون: </string>
+    <string name="sec1heading"> بنيادي معلومات: </string>
+    <string name="sec2heading"> علامتون: </string>
 
     <string name="newHHheadname"> نیا سربراہ کا نام </string>
     <string name="formdate"> تاريخ</string>
