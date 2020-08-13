@@ -46,7 +46,7 @@ public final class CreateTable {
             + UsersTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersTable.COLUMN_USERNAME + " TEXT,"
             + UsersTable.COLUMN_PASSWORD + " TEXT,"
-            + UsersTable.DIST_ID + " TEXT"
+            + UsersTable.COLUMN_FULL_NAME + " TEXT"
             + " );";
 
     public static final String SQL_CREATE_VERSIONAPP = "CREATE TABLE " + VersionAppTable.TABLE_NAME + " (" +

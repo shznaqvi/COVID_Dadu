@@ -17,7 +17,7 @@ public class Users {
     Long id;
     String username;
     String password;
-    String distId;
+    String full_name;
 //    String REGION_DSS;
 
     public Users() {
@@ -53,12 +53,12 @@ public class Users {
         this.password = password;
     }
 
-    public String getDistId() {
-        return distId;
+    public String getFull_name() {
+        return full_name;
     }
 
-    public void setDistId(String distId) {
-        this.distId = distId;
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 
 /*    public String getREGION_DSS() {
@@ -72,7 +72,7 @@ public class Users {
     public Users Sync(JSONObject jsonObject) throws JSONException {
         this.username = jsonObject.getString(UsersTable.COLUMN_USERNAME);
         this.password = jsonObject.getString(UsersTable.COLUMN_PASSWORD);
-        this.distId = jsonObject.getString(UsersTable.DIST_ID);
+        this.full_name = jsonObject.getString(UsersTable.COLUMN_FULL_NAME);
 //        this.REGION_DSS = jsonObject.getString(singleUser.REGION_DSS);
         return this;
 
@@ -82,7 +82,7 @@ public class Users {
         this.id = cursor.getLong(cursor.getColumnIndex(UsersTable._ID));
         this.username = cursor.getString(cursor.getColumnIndex(UsersTable.COLUMN_USERNAME));
         this.password = cursor.getString(cursor.getColumnIndex(UsersTable.COLUMN_PASSWORD));
-        this.distId = cursor.getString(cursor.getColumnIndex(UsersTable.DIST_ID));
+        this.full_name = cursor.getString(cursor.getColumnIndex(UsersTable.COLUMN_FULL_NAME));
 //        this.REGION_DSS = cursor.getString(cursor.getColumnIndex(singleUser.REGION_DSS));
         return this;
 
@@ -95,7 +95,7 @@ public class Users {
         json.put(UsersTable._ID, this.id == null ? JSONObject.NULL : this.id);
         json.put(UsersTable.COLUMN_USERNAME, this.username == null ? JSONObject.NULL : this.username);
         json.put(UsersTable.COLUMN_PASSWORD, this.password == null ? JSONObject.NULL : this.password);
-        json.put(UsersTable.DIST_ID, this.distId == null ? JSONObject.NULL : this.distId);
+        json.put(UsersTable.COLUMN_FULL_NAME, this.full_name == null ? JSONObject.NULL : this.full_name);
 //        json.put(singleUser.REGION_DSS, this.REGION_DSS == null ? JSONObject.NULL : this.REGION_DSS);
         return json;
     }
