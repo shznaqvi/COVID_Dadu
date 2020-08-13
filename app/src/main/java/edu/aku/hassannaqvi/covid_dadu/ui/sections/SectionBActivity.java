@@ -37,6 +37,8 @@ public class SectionBActivity extends AppCompatActivity {
 
     private void setupSkip() {
 
+        bi.s2q3.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVs2q31));
+
         bi.s2q597.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
                 bi.s2q5check.setTag(-1);
