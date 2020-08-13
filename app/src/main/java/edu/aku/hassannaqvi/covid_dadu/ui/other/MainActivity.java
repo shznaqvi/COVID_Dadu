@@ -306,13 +306,13 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
             case R.id.formA:
                 oF = new Intent(this, SectionAActivity.class);
                 break;
-            /*  case R.id.formB:
-                oF = new Intent(this, SectionBActivity.class);
+            case R.id.formB:
+                oF = new Intent(this, MainActivity.class);
                 break;
             case R.id.formC:
-                oF = new Intent(this, SectionCActivity.class);
+                oF = new Intent(this, MainActivity.class);
                 break;
-            case R.id.formD:
+            /*  case R.id.formD:
                 oF = new Intent(this, SectionDActivity.class);
                 break;
             case R.id.formE:

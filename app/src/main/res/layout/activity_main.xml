@@ -131,38 +131,115 @@
 
                 </LinearLayout>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/formA"
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="12dp"
-                    android:clickable="true"
-                    android:elevation="@dimen/cardview_default_elevation"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:onClick="@{callback::openSpecificActivity}"
-                    app:cardCornerRadius="@dimen/cardview_default_radius">
+                    android:orientation="horizontal">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimaryDark"
-                        android:padding="12dp">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/formA"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_margin="12dp"
+                        android:clickable="true"
+                        android:elevation="@dimen/cardview_default_elevation"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{callback::openSpecificActivity}"
+                        app:cardCornerRadius="@dimen/cardview_default_radius">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_gravity="center_horizontal"
-                            android:drawableStart="@drawable/open_form"
-                            android:drawablePadding="12dp"
-                            android:text="@string/open_new_form"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/white" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorPrimaryDark"
+                            android:padding="12dp">
 
-                    </RelativeLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_horizontal"
+                                android:drawableStart="@drawable/open_form"
+                                android:drawablePadding="12dp"
+                                android:text="@string/openScreening"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/white" />
 
-                </androidx.cardview.widget.CardView>
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/formB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="12dp"
+                        android:layout_weight="1.4"
+                        android:clickable="true"
+                        android:elevation="@dimen/cardview_default_elevation"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{callback::openSpecificActivity}"
+                        app:cardCornerRadius="@dimen/cardview_default_radius">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorPrimaryDark"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_horizontal"
+                                android:drawableStart="@drawable/open_form"
+                                android:drawablePadding="12dp"
+                                android:text="@string/openPretest"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/white" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/formC"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="12dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:elevation="@dimen/cardview_default_elevation"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{callback::openSpecificActivity}"
+                        app:cardCornerRadius="@dimen/cardview_default_radius">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorPrimaryDark"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_horizontal"
+                                android:drawableStart="@drawable/open_form"
+                                android:drawablePadding="12dp"
+                                android:text="@string/openFollowup"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/white" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/layout2"
