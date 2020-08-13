@@ -41,11 +41,11 @@ public class SectionBActivity extends AppCompatActivity {
 
         bi.s2q597.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
-                bi.s2q5check.setTag(-1);
+                bi.s2q5check.setTag("-1");
                 Clear.clearAllFields(bi.s2q5check, false);
             } else {
-                bi.s2q5check.setTag(0);
                 Clear.clearAllFields(bi.s2q5check, true);
+                bi.s2q5check.setTag("0");
             }
         });
     }

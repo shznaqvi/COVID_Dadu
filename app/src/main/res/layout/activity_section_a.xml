@@ -285,13 +285,14 @@
 
                         </RelativeLayout>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/s1q3"
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:hint="###########"
                             android:inputType="number"
-                            android:maxLength="11" />
+                            android:maxLength="11"
+                            app:pattern="[0-9]{11}" />
 
                     </LinearLayout>
 
