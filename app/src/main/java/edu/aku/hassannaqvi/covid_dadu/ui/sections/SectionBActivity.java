@@ -159,11 +159,11 @@ public class SectionBActivity extends AppCompatActivity {
                 : bi.s2q602.isChecked() ? "2"
                 : "-1");
 
-        /*form.setS2q7(bi.s2q701.isChecked() ? "1"
+        form.setS2q7(bi.s2q701.isChecked() ? "1"
                 : bi.s2q702.isChecked() ? "2"
                 : "-1");
 
-        form.setS2q71(bi.s2q71a.isChecked() ? "1"
+        /*form.setS2q71(bi.s2q71a.isChecked() ? "1"
                 : bi.s2q71b.isChecked() ? "2"
                 : "-1");
 

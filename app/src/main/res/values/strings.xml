@@ -238,18 +238,21 @@
     <string name="s2q596"> ٻيو ڪجھ </string>
     <string name="s2q596x"> مهرباني ڪري وضاحت ڪريو </string>
     <string name="s2q597"> ڪو به نه </string>
-    <string name="s2q6">ڇا مريض ٽريج استقباليه ڊيسڪ تان مشوراحاصل ڪيا؟</string>
-    <string name="s2q601">ها</string>
-    <string name="s2q602">نه</string>
+    <string name="s2q6"> ڇا مريض ٽريج استقباليه ڊيسڪ تان مشورا حاصل ڪيا ؟ </string>
+    <string name="s2q601"> ها </string>
+    <string name="s2q602"> نه </string>
+    <string name="s2q7"> ڇا مريض کي ٽيسٽ لاءِ موڪليو ويو ؟ </string>
+    <string name="s2q701"> ها </string>
+    <string name="s2q702"> نه </string>
     <string name="s2q6_title">نوٽ ؛ ڪرونا ٽيسٽ لاءِ ان شخص کي ريفر ڪريو، جيڪڏهن ان کي ڪرونا جون ڪي به علامتون آهن يا ڪنهن اهڙي شخص سان رابطو ٿيو هجي جنهن کي ڪرونا جي تصديق ٿي يا هتي ٽيسٽ لاءِ موجود آهي ته.</string>
-    <string name="s2q7_title"> پوئواري THQ</string>
+    <!--<string name="s2q7_title"> پوئواري THQ</string>
     <string name="s2q7">ڇا پي سي آر ٽيسٽ ڪرائي وئي آهي؟ </string>
     <string name="s2q701">ها </string>
     <string name="s2q702">نه</string>
     <string name="s2q7_1">جيڪڏهن ها، ته ڇا نتيجو پازيٽو هو؟</string>
     <string name="s2q7_1a">ها</string>
     <string name="s2q7_1b"> نه </string>
-    <string name="s2q7_2">ٽيسٽ جي تاريخ لکو</string>
+    <string name="s2q7_2">ٽيسٽ جي تاريخ لکو</string>-->
 
     <string name="istatus"> انٽرويو جو نتيجو </string>
     <string name="istatusa"> مڪمل ٿيو </string>
