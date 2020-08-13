@@ -189,10 +189,13 @@
     <string name="s1q201">مرد </string>
     <string name="s1q202">عورت</string>
     <string name="s1q3">رابطو نمبر</string>
-    <string name="s1q4">(ايڊريس (مقامي، زميني نشان سان گڏ پتو)</string>
-    <string name="s1q5">(جواب ڏيندڙ جي عمر ( سالن ۾</string>
-    <string name="s1q6">گهر ۾ رهندڙفردن جو ڪل تعداد</string>
-    <string name="s2q1">ڇا ان شخص ۾ هيٺ ڏنل علامتن مان ڪا به آهي؟  نوٽ مريض جن به علامتن جي باري ۾ ٻڌايو آهي انهن جي لاءِ نشان لڳايو ۽ هر هڪ عکامت جا ڏينهن لکو</string>
+    <string name="s1q4"> ايڊريس (مقامي، زميني نشان سان گڏ پتو) </string>
+    <string name="s1q4a"> پتو </string>
+    <string name="s1q5"> جواب ڏيندڙ جي عمر (سالن ۾) </string>
+    <string name="s1q5a"> سالن ۾ </string>
+    <string name="s1q6"> گهر ۾ رهندڙ فردن جو ڪل تعداد </string>
+    <string name="s1q6a"> فردن جو تعداد </string>
+    <string name="s2q1">ڇا ان شخص ۾ هيٺ ڏنل علامتن مان ڪا به آهي؟  نوٽ مريض جن به علامتن جي باري ۾ ٻڌايو آهي انهن جي لاءِ نشان لڳايو ۽ هر هڪ عکامت جا ڏينهن لکو </string>
     <string name="s2q101"> بخار</string>
     <string name="s2q102">سڪي کنگھ</string>
     <string name="s2q103">گلي ۾خراش</string>
