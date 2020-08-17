@@ -201,6 +201,12 @@ public class GetAllData extends AsyncTask<String, String, String> {
 //                    pd.show();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    pd.setTitle("Error");
+                    pd.setMessage(result);
+                    list.get(position).setstatus("Failed");
+                    list.get(position).setstatusID(1);
+                    list.get(position).setmessage(result);
+                    adapter.updatesyncList(list);
                 }
             } else {
                 pd.setMessage("Received: " + result.length() + "");

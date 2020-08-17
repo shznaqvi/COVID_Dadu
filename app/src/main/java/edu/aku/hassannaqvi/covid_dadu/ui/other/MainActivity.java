@@ -36,9 +36,7 @@ import edu.aku.hassannaqvi.covid_dadu.core.MainApp;
 import edu.aku.hassannaqvi.covid_dadu.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.covid_dadu.models.Form;
 import edu.aku.hassannaqvi.covid_dadu.models.VersionApp;
-import edu.aku.hassannaqvi.covid_dadu.ui.list_activity.FormsReportCluster;
 import edu.aku.hassannaqvi.covid_dadu.ui.list_activity.FormsReportDate;
-import edu.aku.hassannaqvi.covid_dadu.ui.list_activity.PendingFormsActivity;
 import edu.aku.hassannaqvi.covid_dadu.ui.sections.SectionAActivity;
 import edu.aku.hassannaqvi.covid_dadu.utils.AndroidUtilityKt;
 import edu.aku.hassannaqvi.covid_dadu.utils.AppUtilsKt;
@@ -113,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
         if (todaysForms.size() > 0) {
             String iStatus;
             rSumText.append("---------------------------------------------------------\r\n")
-                    .append("[District][Ref. No][Form Status][Sync Status]\r\n")
+                    .append("[  Name  ][Ref. No][Form Status][Sync Status]\r\n")
                     .append("---------------------------------------------------------\r\n");
 
             for (Form form : todaysForms) {
@@ -148,8 +146,8 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
                 }
 
                 rSumText
-                        .append(form.getS1q1() + "       ".substring(0, 7))
-                        .append(form.getPid() + "      ".substring(0, 6))
+                        .append((form.getS1q1() + "          ").substring(0, 10))
+                        .append((form.getPid() + "      ").substring(0, 6))
                         .append("  \t\t")
                         .append(iStatus)
                         .append("\t\t\t\t")
@@ -243,15 +241,15 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
             case R.id.onSync:
                 intent = new Intent(MainActivity.this, SyncActivity.class);
                 break;
-            case R.id.checkOpenForms:
+         /*   case R.id.checkOpenForms:
                 intent = new Intent(MainActivity.this, PendingFormsActivity.class);
-                break;
+                break;*/
             case R.id.formsReportDate:
                 intent = new Intent(MainActivity.this, FormsReportDate.class);
                 break;
-            case R.id.formsReportCluster:
+        /*    case R.id.formsReportCluster:
                 intent = new Intent(MainActivity.this, FormsReportCluster.class);
-                break;
+                break;*/
         }
         startActivity(intent);
         return super.onOptionsItemSelected(item);

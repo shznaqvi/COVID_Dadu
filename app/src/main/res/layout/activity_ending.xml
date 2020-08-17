@@ -92,7 +92,7 @@
                         <EditText
                             android:id="@+id/istatus96x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
+                            android:layout_height="wrap_content"
                             android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789"
                             android:inputType="text"
                             android:hint="@string/istatus96x"
