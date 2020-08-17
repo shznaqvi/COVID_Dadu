@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="edu.aku.hassannaqvi.covid_dadu">
@@ -27,7 +26,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
-        <activity android:name=".ui.sections.SectionDActivity"></activity>
+
+        <activity android:name=".ui.sections.SectionDActivity" />
         <activity android:name=".ui.sections.SectionCActivity" />
         <activity
             android:name=".ui.list_activity.FormsReportCluster"
@@ -71,6 +71,10 @@
             android:theme="@style/AppThemeUrdu" />
         <activity
             android:name=".ui.sections.SectionBActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu" />
+        <activity
+            android:name=".ui.sections.SectionEActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity

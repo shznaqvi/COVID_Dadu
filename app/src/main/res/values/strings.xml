@@ -183,6 +183,7 @@
 
     <string name="sec1heading"> بنيادي معلومات: </string>
     <string name="sec2heading"> علامتون: </string>
+    <string name="sec5heading"> تعلقو صحت ڪوارٽر پوئواري فارم </string>
 
     <string name="newHHheadname"> نیا سربراہ کا نام </string>
     <string name="formdate"> تاريخ</string>
@@ -383,6 +384,22 @@
     <string name='Q_kcs2q4_title'>kcs2q4_title</string>
     <string name='Q_kcs2q5'>kcs2q5</string>
     <string name='Q_kcs2q5_title'>kcs2q5_title</string>
+    <string name="fus1q1">مرِيض جو نالو</string>
+    <string name="fus1q2">جنس</string>
+    <string name="fus1q201">مرد </string>
+    <string name="fus1q202">عورت</string>
+    <string name="fus1q3">ڇا پي سي آر ٽيسٽ ڪرائي وئي آهي؟ </string>
+    <string name="fus1q301">ها</string>
+    <string name="fus1q302">نه</string>
+    <string name="fus1q4">جيڪڏهن ها، ته ڇا نتيجو پازيٽو هو؟ </string>
+    <string name="fus1q401">ها</string>
+    <string name="fus1q402">نه </string>
+    <string name="fus1q5">ٽيسٽ جي تاريخ لکو</string>
+    <string name='Q_fus1q1'>fus1q1</string>
+    <string name='Q_fus1q2'>fus1q2</string>
+    <string name='Q_fus1q3'>fus1q3</string>
+    <string name='Q_fus1q4'>fus1q4</string>
+    <string name='Q_fus1q5'>fus1q5</string>
 
 
 </resources>
