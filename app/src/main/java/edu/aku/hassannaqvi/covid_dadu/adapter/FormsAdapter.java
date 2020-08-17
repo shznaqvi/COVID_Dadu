@@ -68,23 +68,11 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
                 iColor = Color.GREEN;
                 break;
             case "2":
-                iStatus = "No Respondent";
+                iStatus = "Incomplete";
                 iColor = Color.RED;
                 break;
             case "3":
-                iStatus = "Memebers Absent";
-                iColor = Color.RED;
-                break;
-            case "4":
                 iStatus = "Refused";
-                iColor = Color.RED;
-                break;
-            case "5":
-                iStatus = "Empty";
-                iColor = Color.RED;
-                break;
-            case "6":
-                iStatus = "Not Found";
                 iColor = Color.RED;
                 break;
             case "96":
