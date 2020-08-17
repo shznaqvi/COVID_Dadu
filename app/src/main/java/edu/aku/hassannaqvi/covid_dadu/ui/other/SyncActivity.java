@@ -53,7 +53,6 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
     String DirectoryName;
     DatabaseHelper db;
     SyncListAdapter syncListAdapter;
-    //UploadListAdapter uploadListAdapter;
     ActivitySyncBinding bi;
     SyncModel model;
     SyncModel uploadmodel;
@@ -61,8 +60,6 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
     List<SyncModel> uploadlist;
     Boolean listActivityCreated;
     Boolean uploadlistActivityCreated;
-    String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
-    private boolean sync_flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +77,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
         db = new DatabaseHelper(this);
         dbBackup();
 
-        sync_flag = getIntent().getBooleanExtra(CONSTANTS.SYNC_LOGIN, false);
+        boolean sync_flag = getIntent().getBooleanExtra(CONSTANTS.SYNC_LOGIN, false);
 
         bi.btnSync.setOnClickListener(v -> onSyncDataClick());
         bi.btnUpload.setOnClickListener(v -> syncServer());
@@ -98,26 +95,12 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
         if (networkInfo != null && networkInfo.isConnected()) {
             /*if (sync_flag) new SyncData(SyncActivity.this, MainApp.DIST_ID).execute(true);
             else new SyncDevice(SyncActivity.this, true).execute();*/
-            new SyncData(SyncActivity.this, MainApp.DIST_ID).execute(true);
+            new SyncDevice(this, true).execute();
+            new SyncData(this, MainApp.DIST_ID).execute(true);
         } else {
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
     }
-
-/*    void setAdapter() {
-        syncListAdapter = new SyncListAdapter(list);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        bi.rvSyncList.setLayoutManager(mLayoutManager);
-        bi.rvSyncList.setItemAnimator(new DefaultItemAnimator());
-        bi.rvSyncList.setAdapter(syncListAdapter);
-        syncListAdapter.notifyDataSetChanged();
-        if (syncListAdapter.getItemCount() > 0) {
-            bi.noItem.setVisibility(View.GONE);
-        } else {
-            bi.noItem.setVisibility(View.VISIBLE);
-        }
-    }*/
-
     void setUploadAdapter() {
         syncListAdapter = new SyncListAdapter(uploadlist);
         RecyclerView.LayoutManager mLayoutManager2 = new LinearLayoutManager(getApplicationContext());
@@ -134,9 +117,6 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
 
     public void syncServer() {
         bi.activityTitle.setText("Upload Data");
-
-//        if(true) return;
-
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -240,8 +220,8 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
     @Override
     public void processFinish(boolean flag) {
         if (flag) {
-            MainApp.appInfo.updateTagName(SyncActivity.this);
-            new SyncData(SyncActivity.this, MainApp.DIST_ID).execute(sync_flag);
+            MainApp.appInfo.updateTagName(this);
+//            new SyncData(SyncActivity.this, MainApp.DIST_ID).execute(sync_flag);
         }
     }
 
@@ -254,14 +234,11 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
 
     public void uploadPhotos(View view) {
 
-        String fileName = "";
-        String appFolder = PROJECT_NAME;
-
         File sdDir = Environment
                 .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 
         Log.d("Files", "Path: " + sdDir);
-        File directory = new File(String.valueOf(sdDir), appFolder);
+        File directory = new File(String.valueOf(sdDir), PROJECT_NAME);
         Log.d("Directory", "uploadPhotos: " + directory);
         if (directory.exists()) {
             File[] files = directory.listFiles(new FileFilter() {
@@ -274,9 +251,9 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
 
             Log.d("Files", "Count: " + files.length);
             if (files.length > 0) {
-                for (int i = 0; i < files.length; i++) {
-                    Log.d("Files", "FileName:" + files[i].getName());
-                    SyncAllPhotos syncAllPhotos = new SyncAllPhotos(files[i].getName(), this);
+                for (File file : files) {
+                    Log.d("Files", "FileName:" + file.getName());
+                    SyncAllPhotos syncAllPhotos = new SyncAllPhotos(file.getName(), this);
                     syncAllPhotos.execute();
 
                     try {

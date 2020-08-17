@@ -36,7 +36,6 @@ import static android.content.Context.MODE_PRIVATE;
 public class SyncAllData extends AsyncTask<Void, Integer, String> {
 
     SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
     private SyncListAdapter adapter;
     private List<SyncModel> uploadlist;
     private int position;
@@ -46,7 +45,6 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
     private String syncClass, url, tableName, updateSyncClass;
     private Class contractClass;
     private Collection dbData;
-    private DatabaseHelper db;
 
     public SyncAllData(Context mContext, String syncClass, String updateSyncClass, Class contractClass, String url,
                        String tableName, Collection dbData, int position, SyncListAdapter adapter, List<SyncModel> uploadlist) {
@@ -70,14 +68,11 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
         pd = new ProgressDialog(mContext);
         pd.setTitle("Syncing " + syncClass);
         pd.setMessage("Getting connected to server...");
-//        pd.show();
         uploadlist.get(position).setstatus("Getting connected to server...");
         uploadlist.get(position).setstatusID(2);
         uploadlist.get(position).setmessage("");
         adapter.updatesyncList(uploadlist);
-        //syncStatus.setText(syncStatus.getText() + "\r\nSyncing " + syncClass);
         sharedPref = mContext.getSharedPreferences("src", MODE_PRIVATE);
-
     }
 
 
@@ -202,7 +197,7 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
             Log.d(TAG, "onPostExecute: " + result);
             json = new JSONArray(result);
 
-            db = new DatabaseHelper(mContext); // Database Helper
+            DatabaseHelper db = new DatabaseHelper(mContext); // Database Helper
 
             Method method = null;
             for (Method method1 : db.getClass().getDeclaredMethods()) {
@@ -216,17 +211,10 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
 
                 if (jsonObject.getString("status").equals("1") && jsonObject.getString("error").equals("0")) {
-
-                    //  db.updateSyncedChildForm(jsonObject.getString("id"));  // UPDATE SYNCED
-
                     method.invoke(db, jsonObject.getString("id"));
-
                     sSynced++;
                 } else if (jsonObject.getString("status").equals("2") && jsonObject.getString("error").equals("0")) {
-                    //db.updateSyncedChildForm(jsonObject.getString("id")); // UPDATE DUPLICATES
-
                     method.invoke(db, jsonObject.getString("id"));
-
                     sDuplicate++;
                 } else {
                     sSyncedError.append("\nError: ").append(jsonObject.getString("message"));
@@ -250,18 +238,13 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
                 adapter.updatesyncList(uploadlist);
             }
 
-            //syncStatus.setText(syncStatus.getText() + "\r\nDone uploading +" + syncClass + " data");
-
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(mContext, "Sync Result:  " + result, Toast.LENGTH_SHORT).show();
 
             pd.setMessage(result);
             pd.setTitle(syncClass + " Sync Failed");
-//            pd.show(); m
             if (result.equals("No new records to sync.")) {
-                //Collection<FormsContract> unclosedForms = db.getUnclosedForms();
-
                 uploadlist.get(position).setmessage(result /*+ " Open Forms" + String.format("%02d", unclosedForms.size())*/);
                 uploadlist.get(position).setstatus("Not processed");
                 uploadlist.get(position).setstatusID(4);
@@ -272,7 +255,6 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
                 uploadlist.get(position).setstatusID(1);
                 adapter.updatesyncList(uploadlist);
             }
-            //syncStatus.setText(syncStatus.getText() + "\r\n" + syncClass + " Sync Failed");
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
             pd.setTitle("Error");
