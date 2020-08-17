@@ -9,6 +9,7 @@
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.covid_dadu.ui.sections.SectionAActivity" />
+
     </data>
 
 

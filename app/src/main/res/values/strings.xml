@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COVID_Dadu</string>
+    <string name="app_name">COVID19 Dadu</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
