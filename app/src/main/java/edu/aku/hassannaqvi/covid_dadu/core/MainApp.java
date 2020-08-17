@@ -50,6 +50,7 @@ public class MainApp extends Application {
     public static final String _UPDATE_URL = MainApp._IP + "/srcdadu2020/app/";
     public static final Integer MONTHS_LIMIT = 11;
     public static final Integer DAYS_LIMIT = 29;
+
     // Location settings
     public static final int INTERVAL_BETWEEN_LOCATION_UPDATE = 200;
     public static final int INTERVAL_FASTEST_BETWEEN_LOCATION_UPDATE = 1000;

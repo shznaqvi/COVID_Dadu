@@ -118,22 +118,13 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
                 Log.d(TAG, "onCreate: '" + form.getIstatus() + "'");
                 switch (form.getIstatus()) {
                     case "1":
-                        iStatus = "Complete ";
+                        iStatus = "Complete   ";
                         break;
                     case "2":
-                        iStatus = "No Resp  ";
+                        iStatus = "Incomplete ";
                         break;
                     case "3":
-                        iStatus = "Empty    ";
-                        break;
-                    case "4":
-                        iStatus = "Refused  ";
-                        break;
-                    case "5":
-                        iStatus = "Non Res. ";
-                        break;
-                    case "6":
-                        iStatus = "Not Found";
+                        iStatus = "Refused    ";
                         break;
                     case "96":
                         iStatus = "Other    ";
@@ -142,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
                         iStatus = "Open     ";
                         break;
                     default:
-                        iStatus = "\t\tN/A" + form.getIstatus();
+                        iStatus = "  -N/A-  " + form.getIstatus();
                 }
 
                 rSumText
