@@ -54,18 +54,18 @@
                             android:text="@string/Q_formdate" />
                     </RelativeLayout>
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
+                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
                         android:id="@+id/formdate"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/formdate"
-                        android:inputType="number"
-                        app:mask="##"
-                        app:maxValue="0"
-                        app:minValue="0"
-                        app:type="range" />
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="DD/MM/YYYY"
+                        app:dateFormat="dd-MM-yyyy"
+                        app:maxDate="CR_DATE"
+                        app:minDate="07/07/2020" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- pid  Input-Numeric   -->
@@ -103,11 +103,11 @@
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/pid"
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/pid"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="####"
                         android:inputType="number"
-                        app:mask="##"
+                        android:maxLength="4"
                         app:maxValue="9999"
                         app:minValue="1"
                         app:type="range" />
@@ -162,9 +162,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/kcs1q1n" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- kcs1q2  Radio   -->
             <androidx.cardview.widget.CardView
@@ -214,14 +218,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/kcs1q2n" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- kcs1q201_title  CheckBox   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVkcs1q201_title"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility='@{kcs1q2y.checked ? View.VISIBLE : View.GONE}'>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -248,6 +257,7 @@
                             android:layout_alignTop="@id/qtxt_kcs1q201_title"
                             android:layout_alignBottom="@id/qtxt_kcs1q201_title"
                             android:text="@string/Q_kcs1q201_title" />
+
                     </RelativeLayout>
 
                     <LinearLayout
@@ -352,9 +362,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/kcs1q2016" />
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- kcs1q3  Radio   -->
             <androidx.cardview.widget.CardView
@@ -404,14 +418,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/kcs1q3n" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- kcs1q3_title  CheckBox   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVkcs1q3_title"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility='@{kcs1q3n.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -504,8 +523,7 @@
                         <EditText
                             android:id="@+id/kcs1q396x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
                             android:hint="@string/kcs1q396"
                             android:tag="kcs1q396"
                             android:text='@{kcs1q396.checked ? kcs1q396x.getText().toString() : ""}'

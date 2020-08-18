@@ -27,8 +27,6 @@
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
 
-        <activity android:name=".ui.sections.SectionDActivity" />
-        <activity android:name=".ui.sections.SectionCActivity" />
         <activity
             android:name=".ui.list_activity.FormsReportCluster"
             android:label="Forms Report"
@@ -61,22 +59,37 @@
         <activity
             android:name=".ui.other.MainActivity"
             android:theme="@style/AppThemeEnglish" />
+
         <activity
             android:name=".ui.sections.InfoSectionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
+
         <activity
             android:name=".ui.sections.SectionAActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
+
         <activity
             android:name=".ui.sections.SectionBActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
+
+        <activity
+            android:name=".ui.sections.SectionCActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu" />
+
+        <activity
+            android:name=".ui.sections.SectionDActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu" />
+
         <activity
             android:name=".ui.sections.SectionEActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
+
         <activity
             android:name=".ui.other.EndingActivity"
             android:screenOrientation="portrait"

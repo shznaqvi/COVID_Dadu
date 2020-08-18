@@ -76,7 +76,9 @@
             <!-- kcs2q4_title  CheckBox   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVkcs2q4_title"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility='@{kcs2q4y.checked ? View.VISIBLE : View.GONE}'>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -169,8 +171,7 @@
                         <EditText
                             android:id="@+id/kcs2q4096x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
                             android:hint="@string/kcs2q4096"
                             android:tag="kcs2q4096"
                             android:text='@{kcs2q4096.checked ? kcs2q4096x.getText().toString() : ""}'
@@ -246,7 +247,8 @@
             <!-- kcs2q5_title  CheckBox   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVkcs2q5_title"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility='@{kcs2q5y.checked ? View.VISIBLE : View.GONE}'>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -339,8 +341,7 @@
                         <EditText
                             android:id="@+id/kcs2q5096x"
                             android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
+                            android:layout_height="wrap_content"
                             android:hint="@string/kcs2q5096"
                             android:tag="kcs2q5096"
                             android:text='@{kcs2q5096.checked ? kcs2q5096x.getText().toString() : ""}'
