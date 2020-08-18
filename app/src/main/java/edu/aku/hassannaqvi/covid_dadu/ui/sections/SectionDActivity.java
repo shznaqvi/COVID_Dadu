@@ -139,7 +139,7 @@ public class SectionDActivity extends AppCompatActivity {
 
         json.put("kcs2q5096", bi.kcs2q5096.isChecked() ? "96" : "-1");
 
-        json.put("kcs2q5096x", bi.kcs2q5096x.getText().toString());
+        json.put("kcs2q5096x", bi.kcs2q5096x.getText().toString().trim().isEmpty() ? "-1" : bi.kcs2q5096x.getText().toString());
         json.put("kcs2q5010", bi.kcs2q5010.isChecked() ? "10" : "-1");
 
 
