@@ -167,17 +167,6 @@ public class SectionCActivity extends AppCompatActivity {
         json.put("kcs1q3010", bi.kcs1q3010.isChecked() ? "10" : "-1");
 
 
-      /*  form.setS1q1(bi.s1q1.getText().toString());
-
-        form.setS1q2(bi.s1q201.isChecked() ? "1"
-                : bi.s1q202.isChecked() ? "2"
-                : "-1");
-
-        form.setS1q3(bi.s1q3.getText().toString());
-        form.setS1q4(bi.s1q4.getText().toString());
-        form.setS1q5(bi.s1q5.getText().toString());
-        form.setS1q6(bi.s1q6.getText().toString());*/
-
         MainApp.setGPS(this);
 
     }
