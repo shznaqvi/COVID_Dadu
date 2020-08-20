@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -41,7 +42,12 @@ public class SectionCActivity extends AppCompatActivity {
 
 
     private void setupSkip() {
-        /*bi.a06.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla07));
+        bi.kcs1q2.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVkcs1q201Title));
+        bi.kcs1q3.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVkcs1q3Title));
+
+
+        //     bi.kcs1q2n.setOnClickListener((radioGroup, i)) Clear.clearAllFields(bi.fldGrpCVkcs1q3);
+        /* bi.a06.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla07));
         bi.a07.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla08));*/
     }
 
@@ -160,17 +166,6 @@ public class SectionCActivity extends AppCompatActivity {
         json.put("kcs1q396x", bi.kcs1q396x.getText().toString());
         json.put("kcs1q3010", bi.kcs1q3010.isChecked() ? "10" : "-1");
 
-
-      /*  form.setS1q1(bi.s1q1.getText().toString());
-
-        form.setS1q2(bi.s1q201.isChecked() ? "1"
-                : bi.s1q202.isChecked() ? "2"
-                : "-1");
-
-        form.setS1q3(bi.s1q3.getText().toString());
-        form.setS1q4(bi.s1q4.getText().toString());
-        form.setS1q5(bi.s1q5.getText().toString());
-        form.setS1q6(bi.s1q6.getText().toString());*/
 
         MainApp.setGPS(this);
 

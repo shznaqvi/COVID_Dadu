@@ -10,9 +10,6 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import edu.aku.hassannaqvi.covid_dadu.R;
 import edu.aku.hassannaqvi.covid_dadu.contracts.FormsContract;
 import edu.aku.hassannaqvi.covid_dadu.core.DatabaseHelper;
@@ -38,34 +35,43 @@ public class SectionEActivity extends AppCompatActivity {
 
     private void setupSkip() {
 
-        /*bi.s2q3.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVs2q31));
-
-        bi.s2q597.setOnCheckedChangeListener((compoundButton, b) -> {
-            if (b) {
-                bi.s2q5check.setTag("-1");
-                Clear.clearAllFields(bi.s2q5check, false);
-            } else {
-                Clear.clearAllFields(bi.s2q5check, true);
-                bi.s2q5check.setTag("0");
-            }
-        });*/
-
-
-
-
         bi.fus1q3.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i != bi.fus1q302.getId()) {
                 Clear.clearAllFields(bi.fldGrpfus1q3);
             }
         }));
+
     }
 
 
+    public void BtnContinue() {
+        if (!formValidation()) return;
+        SaveDraft();
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+        } else {
+            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
-    private void SaveDraft() throws JSONException {
+    private boolean UpdateDB() {
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SB, form.sBtoString());
+        if (updcount > 0) {
+            return true;
+        } else {
+            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
 
-        JSONObject json = new JSONObject();
+
+    private void SaveDraft() {
+
+        /*JSONObject json = new JSONObject();
+
         json.put("formdate", bi.formdate.getText().toString());
 
         json.put("pid", bi.pid.getText().toString());
@@ -84,13 +90,20 @@ public class SectionEActivity extends AppCompatActivity {
                 : bi.fus1q402.isChecked() ? "2"
                 :  "-1");
 
-        json.put("fus1q5", bi.fus1q5.getText().toString());
-
-
+        json.put("fus1q5", bi.fus1q5.getText().toString());*/
 
 
     }
+
+
     public void BtnEnd() {
         AppUtilsKt.openEndActivity(this);
     }
+
+
+    private boolean formValidation() {
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
+    }
+
+
 }
