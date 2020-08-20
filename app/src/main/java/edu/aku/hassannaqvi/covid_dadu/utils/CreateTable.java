@@ -13,7 +13,7 @@ public final class CreateTable {
     public static final int DATABASE_VERSION = 1;
 
     public static final String SQL_CREATE_FORMS = "CREATE TABLE "
-            + FormsTable.TABLE_NAME + "("
+            + FormsTable.TABLE_NAME_FORMS + "("
             + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + FormsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + FormsTable.COLUMN_DEVICEID + " TEXT,"
@@ -22,6 +22,7 @@ public final class CreateTable {
             + FormsTable.COLUMN_UID + " TEXT,"
             + FormsTable.COLUMN_USERNAME + " TEXT,"
             + FormsTable.COLUMN_FORMDATE + " TEXT,"
+            + FormsTable.COLUMN_FORMTYPE + " TEXT,"
             + FormsTable.COLUMN_PID + " TEXT,"
             + FormsTable.COLUMN_S1Q1 + " TEXT,"
             + FormsTable.COLUMN_S1Q2 + " TEXT,"

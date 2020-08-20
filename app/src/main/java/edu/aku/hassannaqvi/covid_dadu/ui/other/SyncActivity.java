@@ -32,7 +32,6 @@ import java.util.List;
 import edu.aku.hassannaqvi.covid_dadu.CONSTANTS;
 import edu.aku.hassannaqvi.covid_dadu.R;
 import edu.aku.hassannaqvi.covid_dadu.adapter.SyncListAdapter;
-import edu.aku.hassannaqvi.covid_dadu.contracts.FormsContract;
 import edu.aku.hassannaqvi.covid_dadu.core.DatabaseHelper;
 import edu.aku.hassannaqvi.covid_dadu.core.MainApp;
 import edu.aku.hassannaqvi.covid_dadu.databinding.ActivitySyncBinding;
@@ -101,6 +100,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
     }
+
     void setUploadAdapter() {
         syncListAdapter = new SyncListAdapter(uploadlist);
         RecyclerView.LayoutManager mLayoutManager2 = new LinearLayoutManager(getApplicationContext());
@@ -127,21 +127,27 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
 
             new SyncDevice(this, false).execute();
 //  *******************************************************Forms*********************************
-            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            if (uploadlistActivityCreated) {
-                uploadmodel = new SyncModel();
-                uploadmodel.setstatusID(0);
-                uploadlist.add(uploadmodel);
+
+            String[] sync_forms = {"covid", "pretest", "followup"};
+
+            for (int i = 0; i < sync_forms.length; i++) {
+                Toast.makeText(getApplicationContext(), String.format("Syncing %s Forms", sync_forms[i].toUpperCase()), Toast.LENGTH_SHORT).show();
+                if (uploadlistActivityCreated) {
+                    uploadmodel = new SyncModel();
+                    uploadmodel.setstatusID(0);
+                    uploadlist.add(uploadmodel);
+                }
+                new SyncAllData(
+                        this,
+                        sync_forms[i].toUpperCase() + " Forms",
+                        "updateSyncedForms",
+                        Form.class,
+                        MainApp._HOST_URL + MainApp._SERVER_URL,
+                        sync_forms[i],
+                        db.getUnsyncedForms(i + 1), i, syncListAdapter, uploadlist
+                ).execute();
+
             }
-            new SyncAllData(
-                    this,
-                    "Forms",
-                    "updateSyncedForms",
-                    Form.class,
-                    MainApp._HOST_URL + MainApp._SERVER_URL,
-                    FormsContract.FormsTable.TABLE_NAME,
-                    db.getUnsyncedForms(), 0, syncListAdapter, uploadlist
-            ).execute();
 
             bi.noDataItem.setVisibility(View.GONE);
 

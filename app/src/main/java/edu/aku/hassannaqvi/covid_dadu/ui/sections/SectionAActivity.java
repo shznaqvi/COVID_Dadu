@@ -33,15 +33,8 @@ public class SectionAActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_a);
         bi.setCallback(this);
-        setupSkip();
+        bi.pid.requestFocus();
     }
-
-
-    private void setupSkip() {
-        /*bi.a06.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla07));
-        bi.a07.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla08));*/
-    }
-
 
     public void BtnContinue() {
         if (!formValidation()) return;
@@ -81,12 +74,12 @@ public class SectionAActivity extends AppCompatActivity {
         form.setDeviceID(MainApp.appInfo.getDeviceID());
         form.setDevicetagID(MainApp.appInfo.getTagName());
         form.setAppversion(MainApp.appInfo.getAppVersion());
-        form.setS1q1(bi.s1q1.getText().toString());
+        form.setFormType("1");
 
+        form.setS1q1(bi.s1q1.getText().toString());
         form.setS1q2(bi.s1q201.isChecked() ? "1"
                 : bi.s1q202.isChecked() ? "2"
                 : "-1");
-
         form.setS1q3(bi.s1q3.getText().toString());
         form.setS1q4(bi.s1q4.getText().toString());
         form.setS1q5(bi.s1q5.getText().toString());

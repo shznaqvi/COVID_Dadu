@@ -14,7 +14,7 @@ public class FormsContract {
     public static String CONTENT_AUTHORITY = "edu.aku.hassannaqvi.covid_dadu";
 
     public static abstract class FormsTable implements BaseColumns {
-        public static final String TABLE_NAME = "covid";
+        public static final String TABLE_NAME_FORMS = "forms";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
@@ -22,6 +22,7 @@ public class FormsContract {
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_FORMDATE = "formdate";
+        public static final String COLUMN_FORMTYPE = "formtype";
         public static final String COLUMN_PID = "pid";
         public static final String COLUMN_S1Q1 = "s1q1";
         public static final String COLUMN_S1Q2 = "s1q2";
@@ -50,7 +51,6 @@ public class FormsContract {
         public static Uri CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY)
                 .buildUpon().appendPath(PATH).build();
         public static String SERVER_URL = "sync.php";
-
 
         public static String getMovieKeyFromUri(Uri uri) {
             return uri.getPathSegments().get(1);

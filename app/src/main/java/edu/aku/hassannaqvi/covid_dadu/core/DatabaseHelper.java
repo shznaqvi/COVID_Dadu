@@ -224,6 +224,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_USERNAME, form.getUsername());
         values.put(FormsTable.COLUMN_SYSDATE, form.getSysdate());
         values.put(FormsTable.COLUMN_FORMDATE, form.getFormdate());
+        values.put(FormsTable.COLUMN_FORMTYPE, form.getFormType());
         values.put(FormsTable.COLUMN_PID, form.getPid());
         values.put(FormsTable.COLUMN_S1Q1, form.getS1q1());
         values.put(FormsTable.COLUMN_S1Q2, form.getS1q2());
@@ -246,7 +247,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                FormsTable.TABLE_NAME,
+                FormsTable.TABLE_NAME_FORMS,
                 FormsTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
@@ -263,7 +264,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String selection = FormsTable._ID + " = ?";
         String[] selectionArgs = {String.valueOf(MainApp.form.get_ID())};
 
-        int count = db.update(FormsTable.TABLE_NAME,
+        int count = db.update(FormsTable.TABLE_NAME_FORMS,
                 values,
                 selection,
                 selectionArgs);
@@ -279,6 +280,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_USERNAME,
                 FormsTable.COLUMN_SYSDATE,
                 FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_FORMTYPE,
                 FormsTable.COLUMN_PID,
                 FormsTable.COLUMN_S1Q1,
                 FormsTable.COLUMN_S1Q2,
@@ -308,7 +310,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Collection<Form> allForms = new ArrayList<Form>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    FormsTable.TABLE_NAME_FORMS,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -340,6 +342,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_USERNAME,
                 FormsTable.COLUMN_SYSDATE,
                 FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_FORMTYPE,
                 FormsTable.COLUMN_PID,
                 FormsTable.COLUMN_S1Q1,
                 FormsTable.COLUMN_S1Q2,
@@ -369,7 +372,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Collection<Form> allForms = new ArrayList<Form>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    FormsTable.TABLE_NAME_FORMS,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -392,7 +395,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allForms;
     }
 
-    public Collection<Form> getUnsyncedForms() {
+    public Collection<Form> getUnsyncedForms(int formType) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -401,6 +404,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_USERNAME,
                 FormsTable.COLUMN_SYSDATE,
                 FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_FORMTYPE,
                 FormsTable.COLUMN_PID,
                 FormsTable.COLUMN_S1Q1,
                 FormsTable.COLUMN_S1Q2,
@@ -421,9 +425,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_APPVERSION,
         };
 
-
-        String whereClause = FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " == '' ";
+        String whereClause = FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " == ''";
         String[] whereArgs = null;
+        if (formType != 0) {
+            whereClause = "(" + FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " == '') AND " + FormsTable.COLUMN_FORMTYPE + "=?";
+            whereArgs = new String[]{String.valueOf(formType)};
+        }
         String groupBy = null;
         String having = null;
         String orderBy = FormsTable.COLUMN_ID + " ASC";
@@ -431,7 +438,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Collection<Form> allForms = new ArrayList<>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    FormsTable.TABLE_NAME_FORMS,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -440,9 +447,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                Log.d(TAG, "getUnsyncedForms: " + c.getCount());
-                Form form = new Form();
-                allForms.add(form.Hydrate(c));
+                allForms.add(new Form().Hydrate(c));
             }
         } finally {
             if (c != null) {
@@ -456,8 +461,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Collection<Form> getTodayForms(String sysdate) {
-
-        // String sysdate =  spDateT.substring(0, 8).trim()
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -466,6 +469,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_USERNAME,
                 FormsTable.COLUMN_SYSDATE,
                 FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_FORMTYPE,
                 FormsTable.COLUMN_PID,
                 FormsTable.COLUMN_S1Q1,
                 FormsTable.COLUMN_S1Q2,
@@ -480,7 +484,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         };
         String whereClause = FormsTable.COLUMN_SYSDATE + " Like ? ";
         String[] whereArgs = new String[]{"%" + sysdate + " %"};
-//        String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
         String groupBy = null;
         String having = null;
 
@@ -490,7 +493,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Collection<Form> allForms = new ArrayList<>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    FormsTable.TABLE_NAME_FORMS,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -505,6 +508,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 form.setUsername(c.getString(c.getColumnIndex(FormsTable.COLUMN_USERNAME)));
                 form.setSysdate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
                 form.setFormdate(c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMDATE)));
+                form.setFormType(c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMTYPE)));
                 form.setPid(c.getString(c.getColumnIndex(FormsTable.COLUMN_PID)));
                 form.setS1q1(c.getString(c.getColumnIndex(FormsTable.COLUMN_S1Q1)));
                 form.setS1q2(c.getString(c.getColumnIndex(FormsTable.COLUMN_S1Q2)));
@@ -556,7 +560,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Collection<Form> allForms = new ArrayList<>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    FormsTable.TABLE_NAME_FORMS,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -609,7 +613,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Form> allForms = new ArrayList<>();
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    FormsTable.TABLE_NAME_FORMS,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -653,7 +657,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String selection = FormsTable.COLUMN_ID + " =? ";
         String[] selectionArgs = {String.valueOf(MainApp.form.get_ID())};
 
-        return db.update(FormsTable.TABLE_NAME,
+        return db.update(FormsTable.TABLE_NAME_FORMS,
                 values,
                 selection,
                 selectionArgs);
@@ -750,7 +754,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Form allForms = null;
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    FormsTable.TABLE_NAME_FORMS,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -782,7 +786,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String selection = FormsTable._ID + " =? ";
         String[] selectionArgs = {String.valueOf(MainApp.form.get_ID())};
 
-        return db.update(FormsTable.TABLE_NAME,
+        return db.update(FormsTable.TABLE_NAME_FORMS,
                 values,
                 selection,
                 selectionArgs);
@@ -802,9 +806,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         alc.add(null);
 
         try {
-            String maxQuery = Query;
             //execute the query results will be save in Cursor c
-            Cursor c = sqlDB.rawQuery(maxQuery, null);
+            Cursor c = sqlDB.rawQuery(Query, null);
 
             //add value to cursor2
             Cursor2.addRow(new Object[]{"Success"});
@@ -818,18 +821,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 return alc;
             }
             return alc;
-        } catch (SQLException sqlEx) {
+        } catch (Exception sqlEx) {
             Log.d("printing exception", sqlEx.getMessage());
             //if any exceptions are triggered save the error message to cursor an return the arraylist
             Cursor2.addRow(new Object[]{"" + sqlEx.getMessage()});
-            alc.set(1, Cursor2);
-            return alc;
-        } catch (Exception ex) {
-
-            Log.d("printing exception", ex.getMessage());
-
-            //if any exceptions are triggered save the error message to cursor an return the arraylist
-            Cursor2.addRow(new Object[]{"" + ex.getMessage()});
             alc.set(1, Cursor2);
             return alc;
         }
@@ -849,7 +844,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] whereArgs = {id};
 
         int count = db.update(
-                FormsTable.TABLE_NAME,
+                FormsTable.TABLE_NAME_FORMS,
                 values,
                 where,
                 whereArgs);

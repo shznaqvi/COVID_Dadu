@@ -47,7 +47,7 @@ public class MainApp extends Application {
     public static final String _SERVER_GET_URL = "getData.php";
     public static final String _PHOTO_UPLOAD_URL = MainApp._IP + "/srcdadu2020/api/uploads.php";
 
-    public static final String _UPDATE_URL = MainApp._IP + "/srcdadu2020/app/";
+    public static final String _UPDATE_URL = MainApp._IP + "/srcdadu2020/app/covid/";
     public static final Integer MONTHS_LIMIT = 11;
     public static final Integer DAYS_LIMIT = 29;
     // Location settings
@@ -81,7 +81,6 @@ public class MainApp extends Application {
     public static String userName = "0000";
     public static UsersContract user;
     public static Form form;
-    public static int deathCount = 0;
     public static String DeviceURL = "devices.php";
     public static String IMEI;
     public static String G102;

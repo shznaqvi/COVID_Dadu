@@ -13,17 +13,14 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import edu.aku.hassannaqvi.covid_dadu.R;
 import edu.aku.hassannaqvi.covid_dadu.contracts.FormsContract;
 import edu.aku.hassannaqvi.covid_dadu.core.DatabaseHelper;
 import edu.aku.hassannaqvi.covid_dadu.core.MainApp;
 import edu.aku.hassannaqvi.covid_dadu.databinding.ActivitySectionDBinding;
-import edu.aku.hassannaqvi.covid_dadu.models.Form;
 import edu.aku.hassannaqvi.covid_dadu.ui.other.EndingActivity;
 import edu.aku.hassannaqvi.covid_dadu.utils.AppUtilsKt;
+import edu.aku.hassannaqvi.covid_dadu.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.covid_dadu.core.MainApp.form;
 
@@ -42,9 +39,6 @@ public class SectionDActivity extends AppCompatActivity {
     private void setupSkip() {
         bi.kcs2q4.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVkcs2q4Title));
         bi.kcs2q5.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVkcs2q5Title));
-
-        /*bi.a06.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla07));
-        bi.a07.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla08));*/
     }
 
 
@@ -64,13 +58,9 @@ public class SectionDActivity extends AppCompatActivity {
     }
 
     private boolean UpdateDB() {
-
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        long updcount = db.addForm(form);
-        form.set_ID(String.valueOf(updcount));
-        if (updcount > 0) {
-            form.set_UID(form.getDeviceID() + form.get_ID());
-            db.updatesFormColumn(FormsContract.FormsTable.COLUMN_UID, form.get_UID());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SB, form.getsB());
+        if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
@@ -79,15 +69,6 @@ public class SectionDActivity extends AppCompatActivity {
     }
 
     private void SaveDraft() throws JSONException {
-
-        form = new Form();
-        form.setSysdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
-        form.setFormdate(form.getSysdate());
-        //form.setPid(bi.pid.getText().toString());
-        form.setUsername(MainApp.userName);
-        form.setDeviceID(MainApp.appInfo.getDeviceID());
-        form.setDevicetagID(MainApp.appInfo.getTagName());
-        form.setAppversion(MainApp.appInfo.getAppVersion());
 
         JSONObject json = new JSONObject();
         json.put("kcs2q4", bi.kcs2q4y.isChecked() ? "1"
@@ -142,8 +123,12 @@ public class SectionDActivity extends AppCompatActivity {
         json.put("kcs2q5096x", bi.kcs2q5096x.getText().toString().trim().isEmpty() ? "-1" : bi.kcs2q5096x.getText().toString());
         json.put("kcs2q5010", bi.kcs2q5010.isChecked() ? "10" : "-1");
 
-
-        MainApp.setGPS(this);
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(form.getsB()), json);
+            form.setsB(String.valueOf(json_merge));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 

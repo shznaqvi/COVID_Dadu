@@ -37,6 +37,7 @@ public class SectionCActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_c);
         bi.setCallback(this);
+        bi.formdate.requestFocus();
         setupSkip();
     }
 
@@ -44,11 +45,6 @@ public class SectionCActivity extends AppCompatActivity {
     private void setupSkip() {
         bi.kcs1q2.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVkcs1q201Title));
         bi.kcs1q3.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVkcs1q3Title));
-
-
-        //     bi.kcs1q2n.setOnClickListener((radioGroup, i)) Clear.clearAllFields(bi.fldGrpCVkcs1q3);
-        /* bi.a06.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla07));
-        bi.a07.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.lla08));*/
     }
 
 
@@ -69,7 +65,6 @@ public class SectionCActivity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         long updcount = db.addForm(form);
         form.set_ID(String.valueOf(updcount));
@@ -94,12 +89,11 @@ public class SectionCActivity extends AppCompatActivity {
         form.setDeviceID(MainApp.appInfo.getDeviceID());
         form.setDevicetagID(MainApp.appInfo.getTagName());
         form.setAppversion(MainApp.appInfo.getAppVersion());
+        form.setFormdate(bi.formdate.getText().toString());
+        form.setPid(bi.pid.getText().toString());
+        form.setFormType("2");
 
         JSONObject json = new JSONObject();
-
-        json.put("formdate", bi.formdate.getText().toString());
-
-        json.put("pid", bi.pid.getText().toString());
 
         json.put("kcs1q1", bi.kcs1q1y.isChecked() ? "1"
                 : bi.kcs1q1n.isChecked() ? "2"
@@ -166,9 +160,8 @@ public class SectionCActivity extends AppCompatActivity {
         json.put("kcs1q396x", bi.kcs1q396x.getText().toString());
         json.put("kcs1q3010", bi.kcs1q3010.isChecked() ? "10" : "-1");
 
-
+        form.setsB(String.valueOf(json));
         MainApp.setGPS(this);
-
     }
 
 

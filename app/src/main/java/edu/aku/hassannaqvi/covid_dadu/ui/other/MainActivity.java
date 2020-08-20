@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
     String preVer = "", newVer = "";
     VersionApp versionApp;
     Long refID;
+    private Boolean exit = false;
+
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -91,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
             }
         }
     };
-    private Boolean exit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,9 +100,8 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
         bi = DataBindingUtil.setContentView(this, R.layout.activity_main);
         bi.setCallback(this);
 
-        //bi.txtinstalldate.setText(appInfo.getAppInfo());
         Collection<Form> todaysForms = appInfo.getDbHelper().getTodayForms(sysdateToday);
-        Collection<Form> unsyncedForms = appInfo.getDbHelper().getUnsyncedForms();
+        Collection<Form> unsyncedForms = appInfo.getDbHelper().getUnsyncedForms(0);
         Collection<Form> unclosedForms = appInfo.getDbHelper().getUnclosedForms();
 
         StringBuilder rSumText = new StringBuilder()
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
         if (todaysForms.size() > 0) {
             String iStatus;
             rSumText.append("---------------------------------------------------------\r\n")
-                    .append("[  Name  ][Ref. No][Form Status][Sync Status]\r\n")
+                    .append("[  Name  ][Ref. No][Form Type][Form Status][Sync Status]\r\n")
                     .append("---------------------------------------------------------\r\n");
 
             for (Form form : todaysForms) {
@@ -138,12 +138,27 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
                         iStatus = "  -N/A-  " + form.getIstatus();
                 }
 
+                String form_type = "NA";
+                switch (form.getFormType()) {
+                    case "1":
+                        form_type = "Screening";
+                        break;
+                    case "2":
+                        form_type = "PreTest";
+                        break;
+                    case "3":
+                        form_type = "FollowUp";
+                        break;
+                }
+
                 rSumText
                         .append((form.getS1q1() + "          ").substring(0, 10))
                         .append((form.getPid() + "      ").substring(0, 6))
                         .append("  \t\t")
+                        .append(form_type)
+                        .append("  \t")
                         .append(iStatus)
-                        .append("\t\t\t\t")
+                        .append("\t\t")
                         .append(form.getSynced() == null ? "Not Synced" : "Synced    ")
                         .append("\r\n")
                         .append("---------------------------------------------------------\r\n");
@@ -164,13 +179,6 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
                 .append("\t\t\t\t\t\t||\r\n")
                 .append("\t========================================================\r\n");
         bi.recordSummary.setText(rSumText);
-
-        Log.d(TAG, "onCreate: " + rSumText);
-        if (MainApp.admin) {
-            bi.databaseBtn.setVisibility(View.VISIBLE);
-        } else {
-            bi.databaseBtn.setVisibility(View.GONE);
-        }
 
         // Auto download app
         sharedPrefDownload = getSharedPreferences("appDownload", MODE_PRIVATE);
@@ -219,11 +227,10 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
         registerReceiver(broadcastReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
 //        Testing visibility
-        if (Integer.parseInt(appInfo.getVersionName().split("\\.")[0]) > 0) {
+        if (Integer.parseInt(appInfo.getVersionName().split("\\.")[0]) > 0)
             bi.testing.setVisibility(View.GONE);
-        } else {
-            bi.testing.setVisibility(View.VISIBLE);
-        }
+        else bi.testing.setVisibility(View.VISIBLE);
+        bi.admin.setVisibility(MainApp.admin ? View.VISIBLE : View.GONE);
 
     }
 
@@ -232,13 +239,13 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
         Intent intent = null;
         switch (item.getItemId()) {
             case R.id.onSync:
-                intent = new Intent(MainActivity.this, SyncActivity.class);
+                intent = new Intent(this, SyncActivity.class);
                 break;
          /*   case R.id.checkOpenForms:
                 intent = new Intent(MainActivity.this, PendingFormsActivity.class);
                 break;*/
             case R.id.formsReportDate:
-                intent = new Intent(MainActivity.this, FormsReportDate.class);
+                intent = new Intent(this, FormsReportDate.class);
                 break;
         /*    case R.id.formsReportCluster:
                 intent = new Intent(MainActivity.this, FormsReportCluster.class);
@@ -265,19 +272,15 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
     @Override
     public void onBackPressed() {
         if (exit) {
-            finish(); // finish activity
-            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+            startActivity(new Intent(this, LoginActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         } else {
-            Toast.makeText(this, "Press Back again to Exit.",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Press Back again to Exit.", Toast.LENGTH_SHORT).show();
             exit = true;
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    exit = false;
-                }
-            }, 3 * 1000);
-
+            new Handler().postDelayed(() -> exit = false, 3 * 1000);
         }
     }
 
@@ -345,7 +348,6 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
     }
 
     public void toggleSummary(View view) {
-
         if (bi.recordSummary.getVisibility() == View.VISIBLE) {
             bi.recordSummary.setVisibility(View.GONE);
         } else {
