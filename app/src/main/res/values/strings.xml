@@ -216,6 +216,7 @@
     <string name="s2q114">سنگهي نه سگهڻ</string>
     <string name="s2q115">ڳالهائڻ ياچرپر ۾ڪمي</string>
     <string name="s2q116">چمڙي تي ڳاڙهاڻ، يا آڱرين يا پيرن جي آڱرين جي رنگت تبديل ٿيڻ</string>
+    <string name="s2q197">ڪو به نه </string>
     <string name="s2q2">ڇا اوهان جو ڪنهن اهڙي شخص سان قريبي رابطو رهيو آهي جنهن جي ڪرونا جي تصديق ٿي هجي؟ </string>
     <string name="s2q201">ها</string>
     <string name="s2q202">نه</string>
@@ -309,6 +310,10 @@
     <string name='Q_s2q7_title'>s2q7_title</string>
     <string name='Q_sno'>sno</string>
 
+    <string name="kcs1q0"> ٽيسٽ جو قسم </string>
+    <string name="kcs1q01">پري ٽيسٽ</string>
+    <string name="kcs1q02">پوسٽ ٽيسٽ</string>
+
     <string name="kcs1q1">ڇا اوهان ڪرونا وائرس 19 جي باري ۾ ٻڌو آهي؟ </string>
     <string name="kcs1q1y">ها </string>
     <string name="kcs1q1n">نه </string>
@@ -346,6 +351,7 @@
     <string name="kcs1q308">ڇڪ ڏيڻ جي وقت ٺونٺ ڏيڻ يا ٽشو يا رومال جو استعمال</string>
     <string name="kcs1q396">ٻيو ڪجھ </string>
     <string name="kcs1q3010">پاڻ کي الڳ رکڻ </string>
+    <string name='Q_kcs1q0'>kcs1q0</string>
     <string name='Q_kcs1q1'>kcs1q1</string>
     <string name='Q_kcs1q2'>kcs1q2</string>
     <string name='Q_kcs1q201_title'>kcs1q201_title</string>

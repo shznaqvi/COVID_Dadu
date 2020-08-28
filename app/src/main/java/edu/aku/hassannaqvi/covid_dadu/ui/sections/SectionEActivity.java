@@ -44,7 +44,7 @@ public class SectionEActivity extends AppCompatActivity {
     private void setupSkip() {
 
         bi.fus1q3.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i != bi.fus1q302.getId()) {
+            if (i == bi.fus1q302.getId()) {
                 Clear.clearAllFields(bi.fldGrpfus1q3);
             }
         }));
@@ -87,13 +87,11 @@ public class SectionEActivity extends AppCompatActivity {
 
         form = new Form();
         form.setSysdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
-        form.setFormdate(form.getSysdate());
-        form.setPid(bi.pid.getText().toString());
         form.setUsername(MainApp.userName);
         form.setDeviceID(MainApp.appInfo.getDeviceID());
         form.setDevicetagID(MainApp.appInfo.getTagName());
         form.setAppversion(MainApp.appInfo.getAppVersion());
-        form.setFormdate(bi.formdate.getText().toString());
+        form.setFormdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
         form.setPid(bi.pid.getText().toString());
         form.setFormType("3");
 

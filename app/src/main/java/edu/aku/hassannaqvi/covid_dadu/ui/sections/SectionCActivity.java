@@ -83,17 +83,19 @@ public class SectionCActivity extends AppCompatActivity {
 
         form = new Form();
         form.setSysdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
-        form.setFormdate(form.getSysdate());
-        form.setPid(bi.pid.getText().toString());
         form.setUsername(MainApp.userName);
         form.setDeviceID(MainApp.appInfo.getDeviceID());
         form.setDevicetagID(MainApp.appInfo.getTagName());
         form.setAppversion(MainApp.appInfo.getAppVersion());
-        form.setFormdate(bi.formdate.getText().toString());
+        form.setFormdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
         form.setPid(bi.pid.getText().toString());
         form.setFormType("2");
 
         JSONObject json = new JSONObject();
+
+        json.put("kcs1q0", bi.kcs1q01.isChecked() ? "1"
+                : bi.kcs1q02.isChecked() ? "2"
+                : "-1");
 
         json.put("kcs1q1", bi.kcs1q1y.isChecked() ? "1"
                 : bi.kcs1q1n.isChecked() ? "2"

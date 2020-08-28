@@ -52,7 +52,8 @@
                 <!-- formdate  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVformdate"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -135,6 +136,7 @@
                             android:maxLength="4"
                             app:maxValue="9999"
                             app:minValue="1"
+                            app:pattern="[0-9]{4}"
                             app:type="range" />
 
                     </LinearLayout>

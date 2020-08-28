@@ -78,6 +78,7 @@ public class Form extends LiveData<Form> {
     private String s2q115x = "";
     private String s2q116 = "";
     private String s2q116x = "";
+    private String s2q197 = "";
     private String s2q2 = "";
     private String s2q3 = "";
     private String s2q31 = "";
@@ -95,6 +96,7 @@ public class Form extends LiveData<Form> {
     private String s2q509 = "";
     private String s2q596 = "";
     private String s2q596x = "";
+    private String s2q597 = "";
     private String s2q6 = "";
     private String s2q7 = "";
     private String s2q71 = "";
@@ -465,6 +467,15 @@ public class Form extends LiveData<Form> {
     }
 
 
+    public String getS2q197() {
+        return s2q197;
+    }
+
+    public void setS2q197(String s2q197) {
+        this.s2q197 = s2q197;
+    }
+
+
     public String getS2q2() {
         return s2q2;
     }
@@ -615,6 +626,15 @@ public class Form extends LiveData<Form> {
 
     public void setS2q596x(String s2q596x) {
         this.s2q596x = s2q596x;
+    }
+
+
+    public String getS2q597() {
+        return s2q597;
+    }
+
+    public void setS2q597(String s2q597) {
+        this.s2q597 = s2q597;
     }
 
 
@@ -879,6 +899,7 @@ public class Form extends LiveData<Form> {
                     .put("s2q115x", s2q115x)
                     .put("s2q116", s2q116)
                     .put("s2q116x", s2q116x)
+                    .put("s2q197", s2q197)
                     .put("s2q2", s2q2)
                     .put("s2q3", s2q3)
                     .put("s2q31", s2q31)
@@ -896,6 +917,7 @@ public class Form extends LiveData<Form> {
                     .put("s2q509", s2q509)
                     .put("s2q596", s2q596)
                     .put("s2q596x", s2q596x)
+                    .put("s2q597", s2q597)
                     .put("s2q6", s2q6)
                     .put("s2q7", s2q7)
                     .put("s2q71", s2q71)
@@ -991,6 +1013,7 @@ public class Form extends LiveData<Form> {
                 this.s2q115x = json.getString("s2q115x");
                 this.s2q116 = json.getString("s2q116");
                 this.s2q116x = json.getString("s2q116x");
+                this.s2q197 = json.getString("s2q197");
                 this.s2q2 = json.getString("s2q2");
                 this.s2q3 = json.getString("s2q3");
                 this.s2q31 = json.getString("s2q31");
@@ -1008,6 +1031,7 @@ public class Form extends LiveData<Form> {
                 this.s2q509 = json.getString("s2q509");
                 this.s2q596 = json.getString("s2q596");
                 this.s2q596x = json.getString("s2q596x");
+                this.s2q597 = json.getString("s2q597");
                 this.s2q6 = json.getString("s2q6");
                 this.s2q7 = json.getString("s2q7");
                 this.s2q71 = json.getString("s2q71");
