@@ -36,7 +36,7 @@ public class SectionEActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e);
         bi.setCallback(this);
-        bi.formdate.requestFocus();
+        bi.pid.requestFocus();
         setupSkip();
     }
 
