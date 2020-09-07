@@ -241,15 +241,9 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
             case R.id.onSync:
                 intent = new Intent(this, SyncActivity.class);
                 break;
-         /*   case R.id.checkOpenForms:
-                intent = new Intent(MainActivity.this, PendingFormsActivity.class);
-                break;*/
             case R.id.formsReportDate:
                 intent = new Intent(this, FormsReportDate.class);
                 break;
-        /*    case R.id.formsReportCluster:
-                intent = new Intent(MainActivity.this, FormsReportCluster.class);
-                break;*/
         }
         startActivity(intent);
         return super.onOptionsItemSelected(item);
@@ -306,33 +300,6 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
             case R.id.formC:
                 oF = new Intent(this, SectionEActivity.class);
                 break;
-            /*  case R.id.formD:
-                oF = new Intent(this, SectionDActivity.class);
-                break;
-            case R.id.formE:
-                oF = new Intent(this, SectionEActivity.class);
-                break;
-            case R.id.formF:
-                oF = new Intent(this, SectionFActivity.class);
-                break;
-            case R.id.formG:
-                oF = new Intent(this, SectionGActivity.class);
-                break;
-            case R.id.formH:
-                oF = new Intent(this, SectionHActivity.class);
-                break;
-            case R.id.formI:
-                oF = new Intent(this, SectionIActivity.class);
-                break;
-            case R.id.formJ:
-                oF = new Intent(this, SectionJActivity.class);
-                break;
-            case R.id.formK:
-                oF = new Intent(this, SectionKActivity.class);
-                break;
-            case R.id.formL:
-                oF = new Intent(this, SectionLActivity.class);
-                break;*/
             case R.id.databaseBtn:
                 oF = new Intent(this, AndroidDatabaseManager.class);
                 break;
@@ -343,6 +310,10 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
                 }
                 oF = new Intent(this, SyncActivity.class);
                 break;
+        }
+        if (MainApp.userName.equals("0000")) {
+            Toast.makeText(this, "Please re-login app.", Toast.LENGTH_SHORT).show();
+            return;
         }
         startActivity(oF);
     }

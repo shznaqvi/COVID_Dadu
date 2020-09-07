@@ -920,9 +920,9 @@ public class Form extends LiveData<Form> {
                     .put("s2q597", s2q597)
                     .put("s2q6", s2q6)
                     .put("s2q7", s2q7)
-                    .put("s2q71", s2q71)
-                    .put("s2q72", s2q72)
-                    .put("appversion", appversion);
+                    .put("appversion", appversion)
+                    /*.put("s2q71", s2q71)
+                    .put("s2q72", s2q72)*/;
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -1034,8 +1034,8 @@ public class Form extends LiveData<Form> {
                 this.s2q597 = json.getString("s2q597");
                 this.s2q6 = json.getString("s2q6");
                 this.s2q7 = json.getString("s2q7");
-                this.s2q71 = json.getString("s2q71");
-                this.s2q72 = json.getString("s2q72");
+                /*this.s2q71 = json.getString("s2q71");
+                this.s2q72 = json.getString("s2q72");*/
 
             } catch (JSONException e) {
                 e.printStackTrace();
