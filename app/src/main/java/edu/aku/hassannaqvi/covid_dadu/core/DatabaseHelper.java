@@ -61,19 +61,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        if (oldVersion == 1)
+            db.execSQL(SQL_CREATE_FUP);
     }
 
     public int syncBLRandom(JSONArray blList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(BLRandomTable.TABLE_NAME, null, null);
 
-        JSONArray jsonArray = blList;
         int insertCount = 0;
-        for (int i = 0; i < jsonArray.length(); i++) {
+        for (int i = 0; i < blList.length(); i++) {
             JSONObject jsonObjectCC = null;
             try {
-                jsonObjectCC = jsonArray.getJSONObject(i);
+                jsonObjectCC = blList.getJSONObject(i);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
