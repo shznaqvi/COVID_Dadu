@@ -106,6 +106,7 @@ public class FUP {
         this.sex = jsonObject.getString(FUPContract.FUPTable.COLUMN_SEX);
         this.istatus = jsonObject.getString(FUPContract.FUPTable.COLUMN_ISTATUS);
         this.s2q7 = jsonObject.getString(FUPContract.FUPTable.COLUMN_S2Q7);
+
         return this;
     }
 
@@ -117,6 +118,7 @@ public class FUP {
         this.sex = cursor.getString(cursor.getColumnIndex(FUPContract.FUPTable.COLUMN_SEX));
         this.istatus = cursor.getString(cursor.getColumnIndex(FUPContract.FUPTable.COLUMN_ISTATUS));
         this.s2q7 = cursor.getString(cursor.getColumnIndex(FUPContract.FUPTable.COLUMN_S2Q7));
+
         return this;
     }
 }

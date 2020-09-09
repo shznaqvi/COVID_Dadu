@@ -20,6 +20,7 @@ import java.net.URL;
 import java.util.List;
 
 import edu.aku.hassannaqvi.covid_dadu.adapter.SyncListAdapter;
+import edu.aku.hassannaqvi.covid_dadu.contracts.FUPContract;
 import edu.aku.hassannaqvi.covid_dadu.contracts.UsersContract;
 import edu.aku.hassannaqvi.covid_dadu.contracts.VersionAppContract;
 import edu.aku.hassannaqvi.covid_dadu.core.DatabaseHelper;
@@ -59,6 +60,9 @@ public class GetAllData extends AsyncTask<String, String, String> {
             case "VersionApp":
                 position = 1;
                 break;
+            case "FUP":
+                position = 2;
+                break;
         }
         list.get(position).settableName(syncClass);
     }
@@ -87,6 +91,9 @@ public class GetAllData extends AsyncTask<String, String, String> {
             case "VersionApp":
                 position = 1;
                 break;
+            case "FUP":
+                position = 2;
+                break;
         }
         list.get(position).setstatus("Syncing");
         list.get(position).setstatusID(2);
@@ -111,6 +118,10 @@ public class GetAllData extends AsyncTask<String, String, String> {
                 case "VersionApp":
                     url = new URL(MainApp._UPDATE_URL + VersionAppContract.VersionAppTable.SERVER_URI);
                     position = 1;
+                    break;
+                case "FUP":
+                    url = new URL(MainApp._UPDATE_URL + FUPContract.FUPTable.SERVER_URI);
+                    position = 2;
                     break;
             }
 
@@ -192,6 +203,11 @@ public class GetAllData extends AsyncTask<String, String, String> {
                             insertCount = db.syncVersionApp(new JSONObject(result));
                             if (insertCount == 1) jsonArray.put("1");
                             position = 1;
+                            break;
+                        case "FUP":
+                            insertCount = db.syncFUP(new JSONObject(result));
+                            if (insertCount == 1) jsonArray.put("1");
+                            position = 2;
                             break;
                     }
 

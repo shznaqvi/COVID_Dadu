@@ -128,6 +128,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return (int) count;
     }
 
+    public Integer syncFUP(JSONObject FUPList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(FUPContract.FUPTable.TABLE_NAME, null, null);
+        long count = 0;
+        try {
+            JSONObject jsonObjectCC = ((JSONArray) FUPList.get(FUPContract.FUPTable.COLUMN_LUID)).getJSONObject(0);
+            FUP Vc = new FUP();
+            Vc.Sync(jsonObjectCC);
+
+            ContentValues values = new ContentValues();
+
+            values.put(FUPContract.FUPTable.COLUMN_LUID, Vc.getLuid());
+            values.put(FUPContract.FUPTable.COLUMN_SYSDATE, Vc.getSysdate());
+            values.put(FUPContract.FUPTable.COLUMN_PID, Vc.getPid());
+            values.put(FUPContract.FUPTable.COLUMN_PATIENT, Vc.getPatient());
+            values.put(FUPContract.FUPTable.COLUMN_SEX, Vc.getSex());
+            values.put(FUPContract.FUPTable.COLUMN_ISTATUS, Vc.getIstatus());
+            values.put(FUPContract.FUPTable.COLUMN_S2Q7, Vc.getS2q7());
+
+            count = db.insert(FUPContract.FUPTable.TABLE_NAME, null, values);
+            if (count > 0) count = 1;
+
+        } catch (Exception ignored) {
+        } finally {
+            db.close();
+        }
+
+        return (int) count;
+    }
+
     public VersionApp getVersionApp() {
 
         SQLiteDatabase db = this.getReadableDatabase();
