@@ -284,11 +284,9 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
     private class SyncData extends AsyncTask<Boolean, String, String> {
 
         private Context mContext;
-        private String distID;
 
         private SyncData(Context mContext, String districtId) {
             this.mContext = mContext;
-            this.distID = districtId;
         }
 
         @Override
@@ -311,6 +309,14 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                         list.add(model);
                     }
                     new GetAllData(mContext, "VersionApp", syncListAdapter, list).execute();
+
+//                    Getting FUP
+                    if (listActivityCreated) {
+                        model = new SyncModel();
+                        model.setstatusID(0);
+                        list.add(model);
+                    }
+                    new GetAllData(mContext, "FUP", syncListAdapter, list).execute();
 
                 }
 

@@ -71,33 +71,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int insertCount = 0;
         for (int i = 0; i < blList.length(); i++) {
-            JSONObject jsonObjectCC = null;
+            JSONObject jsonObjectCC;
             try {
                 jsonObjectCC = blList.getJSONObject(i);
+
+                BLRandom Vc = new BLRandom();
+                Vc.Sync(jsonObjectCC);
+
+                ContentValues values = new ContentValues();
+
+                values.put(BLRandomTable.COLUMN_ID, Vc.get_ID());
+                values.put(BLRandomTable.COLUMN_LUID, Vc.getLUID());
+                values.put(BLRandomTable.COLUMN_STRUCTURE_NO, Vc.getStructure());
+                values.put(BLRandomTable.COLUMN_FAMILY_EXT_CODE, Vc.getExtension());
+                values.put(BLRandomTable.COLUMN_HH, Vc.getHh());
+                values.put(BLRandomTable.COLUMN_EB_CODE, Vc.getEbcode());
+                values.put(BLRandomTable.COLUMN_P_CODE, Vc.getpCode());
+                values.put(BLRandomTable.COLUMN_RANDOMDT, Vc.getRandomDT());
+                values.put(BLRandomTable.COLUMN_HH_HEAD, Vc.getHhhead());
+                values.put(BLRandomTable.COLUMN_CONTACT, Vc.getContact());
+                values.put(BLRandomTable.COLUMN_HH_SELECTED_STRUCT, Vc.getSelStructure());
+                values.put(BLRandomTable.COLUMN_SNO_HH, Vc.getSno());
+
+                long row = db.insert(BLRandomTable.TABLE_NAME, null, values);
+                if (row != -1) insertCount++;
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-            BLRandom Vc = new BLRandom();
-            Vc.Sync(jsonObjectCC);
-            Log.d(TAG, "syncBLRandom: " + Vc.get_ID());
-            ContentValues values = new ContentValues();
-
-            values.put(BLRandomTable.COLUMN_ID, Vc.get_ID());
-            values.put(BLRandomTable.COLUMN_LUID, Vc.getLUID());
-            values.put(BLRandomTable.COLUMN_STRUCTURE_NO, Vc.getStructure());
-            values.put(BLRandomTable.COLUMN_FAMILY_EXT_CODE, Vc.getExtension());
-            values.put(BLRandomTable.COLUMN_HH, Vc.getHh());
-            values.put(BLRandomTable.COLUMN_EB_CODE, Vc.getEbcode());
-            values.put(BLRandomTable.COLUMN_P_CODE, Vc.getpCode());
-            values.put(BLRandomTable.COLUMN_RANDOMDT, Vc.getRandomDT());
-            values.put(BLRandomTable.COLUMN_HH_HEAD, Vc.getHhhead());
-            values.put(BLRandomTable.COLUMN_CONTACT, Vc.getContact());
-            values.put(BLRandomTable.COLUMN_HH_SELECTED_STRUCT, Vc.getSelStructure());
-            values.put(BLRandomTable.COLUMN_SNO_HH, Vc.getSno());
-
-            long row = db.insert(BLRandomTable.TABLE_NAME, null, values);
-            if (row != -1) insertCount++;
         }
         return insertCount;
     }
@@ -128,34 +129,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return (int) count;
     }
 
-    public Integer syncFUP(JSONObject FUPList) {
+    public Integer syncFUP(JSONArray FUPList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(FUPContract.FUPTable.TABLE_NAME, null, null);
-        long count = 0;
+        int insertCount = 0;
         try {
-            JSONObject jsonObjectCC = ((JSONArray) FUPList.get(FUPContract.FUPTable.COLUMN_LUID)).getJSONObject(0);
-            FUP Vc = new FUP();
-            Vc.Sync(jsonObjectCC);
+            for (int i = 0; i < FUPList.length(); i++) {
+                JSONObject jsonObjectCC = FUPList.getJSONObject(i);
 
-            ContentValues values = new ContentValues();
+                FUP Vc = new FUP();
+                Vc.Sync(jsonObjectCC);
 
-            values.put(FUPContract.FUPTable.COLUMN_LUID, Vc.getLuid());
-            values.put(FUPContract.FUPTable.COLUMN_SYSDATE, Vc.getSysdate());
-            values.put(FUPContract.FUPTable.COLUMN_PID, Vc.getPid());
-            values.put(FUPContract.FUPTable.COLUMN_PATIENT, Vc.getPatient());
-            values.put(FUPContract.FUPTable.COLUMN_SEX, Vc.getSex());
-            values.put(FUPContract.FUPTable.COLUMN_ISTATUS, Vc.getIstatus());
-            values.put(FUPContract.FUPTable.COLUMN_S2Q7, Vc.getS2q7());
+                ContentValues values = new ContentValues();
+                values.put(FUPContract.FUPTable.COLUMN_LUID, Vc.getLuid());
+                values.put(FUPContract.FUPTable.COLUMN_SYSDATE, Vc.getSysdate());
+                values.put(FUPContract.FUPTable.COLUMN_PID, Vc.getPid());
+                values.put(FUPContract.FUPTable.COLUMN_PATIENT, Vc.getPatient());
+                values.put(FUPContract.FUPTable.COLUMN_SEX, Vc.getSex());
+                values.put(FUPContract.FUPTable.COLUMN_ISTATUS, Vc.getIstatus());
+                values.put(FUPContract.FUPTable.COLUMN_S2Q7, Vc.getS2q7());
 
-            count = db.insert(FUPContract.FUPTable.TABLE_NAME, null, values);
-            if (count > 0) count = 1;
+                long row = db.insert(FUPContract.FUPTable.TABLE_NAME, null, values);
+                if (row > 0) insertCount++;
+            }
 
         } catch (Exception ignored) {
         } finally {
             db.close();
         }
 
-        return (int) count;
+        return insertCount;
     }
 
     public VersionApp getVersionApp() {
@@ -751,7 +754,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Get FUP data
-    public FUP getHHFromFUP(String subAreaCode, String hh) {
+    public FUP getHHFromFUP(String pid) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
 
@@ -765,13 +768,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FUPContract.FUPTable.COLUMN_S2Q7,
         };
 
-        String whereClause = FUPContract.FUPTable.COLUMN_LUID + "=? AND " + FUPContract.FUPTable.COLUMN_SYSDATE + "=?";
-        String[] whereArgs = new String[]{subAreaCode, hh};
+        String whereClause = FUPContract.FUPTable.COLUMN_PID + "=?";
+        String[] whereArgs = new String[]{pid};
         String groupBy = null;
         String having = null;
 
-        String orderBy =
-                FUPContract.FUPTable.COLUMN_LUID + " ASC";
+        String orderBy = FUPContract.FUPTable.COLUMN_LUID + " ASC";
 
         FUP allFUP = null;
         try {

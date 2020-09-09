@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.covid_dadu.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,8 +22,12 @@ import edu.aku.hassannaqvi.covid_dadu.contracts.FormsContract;
 import edu.aku.hassannaqvi.covid_dadu.core.DatabaseHelper;
 import edu.aku.hassannaqvi.covid_dadu.core.MainApp;
 import edu.aku.hassannaqvi.covid_dadu.databinding.ActivitySectionEBinding;
+import edu.aku.hassannaqvi.covid_dadu.models.FUP;
 import edu.aku.hassannaqvi.covid_dadu.models.Form;
 import edu.aku.hassannaqvi.covid_dadu.ui.other.EndingActivity;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 import static edu.aku.hassannaqvi.covid_dadu.core.MainApp.form;
 import static edu.aku.hassannaqvi.covid_dadu.core.MainApp.setGPS;
@@ -30,6 +35,8 @@ import static edu.aku.hassannaqvi.covid_dadu.core.MainApp.setGPS;
 public class SectionEActivity extends AppCompatActivity {
 
     ActivitySectionEBinding bi;
+    DatabaseHelper db;
+    FUP fup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +44,7 @@ public class SectionEActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e);
         bi.setCallback(this);
         bi.pid.requestFocus();
+        db = MainApp.appInfo.getDbHelper();
         setupSkip();
     }
 
@@ -67,9 +75,46 @@ public class SectionEActivity extends AppCompatActivity {
         }
     }
 
+    public void BtnCheckFUP(View v) {
+        if (!Validator.emptyCheckingContainer(this, bi.GrpName)) return;
+
+        getSpecificFUP()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(fupcontract -> {
+                    fup = fupcontract;
+                    setupFields(View.VISIBLE);
+                    bi.fus1q1.setText(fup.getPatient());
+                    Clear.clearRadioGroup(bi.fus1q2, false);
+                    bi.fus1q2.check(fup.getSex().equals("1") ? bi.fus1q201.getId() : bi.fus1q202.getId());
+
+                    String[] dt = fup.getSysdate().split(" ");
+                    bi.fus1q5.setMinDate(dt[0].replace("-20", "-2020").replace("-", "/"));
+
+                }, error -> {
+                    Toast.makeText(this, "No Follow up found!!", Toast.LENGTH_SHORT).show();
+                    setupFields(View.GONE);
+                });
+    }
+
+    private Observable<FUP> getSpecificFUP() {
+        return Observable.create(emitter -> {
+            emitter.onNext(db.getHHFromFUP(bi.pid.getText().toString()));
+            emitter.onComplete();
+        });
+    }
+
+    public void pidOnTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        setupFields(View.GONE);
+    }
+
+    private void setupFields(int visibility) {
+        bi.fldGrpSecE01.setVisibility(visibility);
+        Clear.clearAllFields(bi.fldGrpSecE01);
+    }
+
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         long updcount = db.addForm(form);
         form.set_ID(String.valueOf(updcount));
         if (updcount > 0) {
@@ -96,6 +141,8 @@ public class SectionEActivity extends AppCompatActivity {
         form.setFormType("3");
 
         JSONObject json = new JSONObject();
+
+        json.put("luid", fup.getLuid());
 
         json.put("fus1q1", bi.fus1q1.getText().toString());
 

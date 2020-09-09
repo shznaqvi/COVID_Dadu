@@ -15,7 +15,7 @@ public class FUPContract {
 
     public static abstract class FUPTable implements BaseColumns {
 
-        public static final String TABLE_NAME = "fup";
+        public static final String TABLE_NAME = "covidfup";
 
         public static final String _ID = "_id";
         public static final String COLUMN_LUID = "luid";
@@ -25,8 +25,6 @@ public class FUPContract {
         public static final String COLUMN_SEX = "sex";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_S2Q7 = "s2q7";
-
-        public static final String SERVER_URI = "fup.php";
 
         public static String PATH = "fup";
 

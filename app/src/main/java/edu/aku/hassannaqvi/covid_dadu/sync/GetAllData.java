@@ -120,7 +120,8 @@ public class GetAllData extends AsyncTask<String, String, String> {
                     position = 1;
                     break;
                 case "FUP":
-                    url = new URL(MainApp._UPDATE_URL + FUPContract.FUPTable.SERVER_URI);
+                    url = new URL(MainApp._HOST_URL + MainApp._SERVER_GET_URL);
+                    tableName = FUPContract.FUPTable.TABLE_NAME;
                     position = 2;
                     break;
             }
@@ -131,6 +132,7 @@ public class GetAllData extends AsyncTask<String, String, String> {
 
             switch (syncClass) {
                 case "User":
+                case "FUP":
                     urlConnection.setRequestMethod("POST");
                     urlConnection.setDoOutput(true);
                     urlConnection.setDoInput(true);
@@ -205,8 +207,8 @@ public class GetAllData extends AsyncTask<String, String, String> {
                             position = 1;
                             break;
                         case "FUP":
-                            insertCount = db.syncFUP(new JSONObject(result));
-                            if (insertCount == 1) jsonArray.put("1");
+                            jsonArray = new JSONArray(result);
+                            insertCount = db.syncFUP(jsonArray);
                             position = 2;
                             break;
                     }
