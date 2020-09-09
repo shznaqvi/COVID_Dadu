@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.covid_dadu.utils;
 
 import edu.aku.hassannaqvi.covid_dadu.contracts.BLRandomContract.BLRandomTable;
+import edu.aku.hassannaqvi.covid_dadu.contracts.FUPContract;
 import edu.aku.hassannaqvi.covid_dadu.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.covid_dadu.contracts.UsersContract.UsersTable;
 import edu.aku.hassannaqvi.covid_dadu.contracts.VersionAppContract.VersionAppTable;
@@ -10,7 +11,7 @@ public final class CreateTable {
     public static final String DATABASE_NAME = "covid_dadu.db";
     public static final String DB_NAME = "covid_dadu_copy.db";
     public static final String PROJECT_NAME = "covid_dadu";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     public static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsTable.TABLE_NAME_FORMS + "("
@@ -70,6 +71,17 @@ public final class CreateTable {
             + BLRandomTable.COLUMN_HH_SELECTED_STRUCT + " TEXT,"
             + BLRandomTable.COLUMN_RANDOMDT + " TEXT,"
             + BLRandomTable.COLUMN_SNO_HH + " TEXT );";
+
+    public static final String SQL_CREATE_FUP = "CREATE TABLE " + FUPContract.FUPTable.TABLE_NAME + " (" +
+            FUPContract.FUPTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            FUPContract.FUPTable.COLUMN_LUID + " TEXT, " +
+            FUPContract.FUPTable.COLUMN_SYSDATE + " TEXT, " +
+            FUPContract.FUPTable.COLUMN_PID + " TEXT, " +
+            FUPContract.FUPTable.COLUMN_PATIENT + " TEXT, " +
+            FUPContract.FUPTable.COLUMN_SEX + " TEXT, " +
+            FUPContract.FUPTable.COLUMN_ISTATUS + " TEXT, " +
+            FUPContract.FUPTable.COLUMN_S2Q7 + " TEXT " +
+            ");";
 
 
 /*    public static final String SQL_ALTER_FORMS = "ALTER TABLE " +

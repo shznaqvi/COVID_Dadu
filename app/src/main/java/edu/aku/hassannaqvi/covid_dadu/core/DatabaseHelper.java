@@ -18,11 +18,13 @@ import java.util.Collection;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.covid_dadu.contracts.BLRandomContract.BLRandomTable;
+import edu.aku.hassannaqvi.covid_dadu.contracts.FUPContract;
 import edu.aku.hassannaqvi.covid_dadu.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.covid_dadu.contracts.UsersContract.UsersTable;
 import edu.aku.hassannaqvi.covid_dadu.contracts.VersionAppContract;
 import edu.aku.hassannaqvi.covid_dadu.contracts.VersionAppContract.VersionAppTable;
 import edu.aku.hassannaqvi.covid_dadu.models.BLRandom;
+import edu.aku.hassannaqvi.covid_dadu.models.FUP;
 import edu.aku.hassannaqvi.covid_dadu.models.Form;
 import edu.aku.hassannaqvi.covid_dadu.models.Users;
 import edu.aku.hassannaqvi.covid_dadu.models.VersionApp;
@@ -31,6 +33,7 @@ import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.DATABASE_VERSION;
 import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.SQL_CREATE_BL_RANDOM;
 import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.SQL_CREATE_FORMS;
+import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.SQL_CREATE_FUP;
 import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.SQL_CREATE_VERSIONAPP;
 
@@ -53,6 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_FORMS);
         db.execSQL(SQL_CREATE_BL_RANDOM);
         db.execSQL(SQL_CREATE_VERSIONAPP);
+        db.execSQL(SQL_CREATE_FUP);
     }
 
     @Override
@@ -714,6 +718,54 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allBL;
+    }
+
+    //Get FUP data
+    public FUP getHHFromFUP(String subAreaCode, String hh) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+
+        String[] columns = {
+                FUPContract.FUPTable.COLUMN_LUID,
+                FUPContract.FUPTable.COLUMN_SYSDATE,
+                FUPContract.FUPTable.COLUMN_PID,
+                FUPContract.FUPTable.COLUMN_PATIENT,
+                FUPContract.FUPTable.COLUMN_SEX,
+                FUPContract.FUPTable.COLUMN_ISTATUS,
+                FUPContract.FUPTable.COLUMN_S2Q7,
+        };
+
+        String whereClause = FUPContract.FUPTable.COLUMN_LUID + "=? AND " + FUPContract.FUPTable.COLUMN_SYSDATE + "=?";
+        String[] whereArgs = new String[]{subAreaCode, hh};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FUPContract.FUPTable.COLUMN_LUID + " ASC";
+
+        FUP allFUP = null;
+        try {
+            c = db.query(
+                    FUPContract.FUPTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                allFUP = new FUP().HydrateFUP(c);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFUP;
     }
 
     //Get Form already exist
