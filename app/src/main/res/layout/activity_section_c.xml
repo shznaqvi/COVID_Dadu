@@ -586,7 +586,8 @@
                             android:hint="@string/kcs1q396"
                             android:tag="kcs1q396"
                             android:text='@{kcs1q396.checked ? kcs1q396x.getText().toString() : ""}'
-                            android:visibility='@{kcs1q396.checked? View.VISIBLE : View.GONE}' />
+                            android:visibility='@{kcs1q396.checked? View.VISIBLE : View.GONE}'
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"/>
 
                         <CheckBox
                             android:id="@+id/kcs1q3010"

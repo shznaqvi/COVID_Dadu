@@ -175,7 +175,8 @@
                             android:hint="@string/kcs2q4096"
                             android:tag="kcs2q4096"
                             android:text='@{kcs2q4096.checked ? kcs2q4096x.getText().toString() : ""}'
-                            android:visibility='@{kcs2q4096.checked? View.VISIBLE : View.GONE}' />
+                            android:visibility='@{kcs2q4096.checked? View.VISIBLE : View.GONE}'
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"/>
 
                         <CheckBox
                             android:id="@+id/kcs2q4010"
@@ -345,7 +346,8 @@
                             android:hint="@string/kcs2q5096"
                             android:tag="kcs2q5096"
                             android:text='@{kcs2q5096.checked ? kcs2q5096x.getText().toString() : ""}'
-                            android:visibility='@{kcs2q5096.checked? View.VISIBLE : View.GONE}' />
+                            android:visibility='@{kcs2q5096.checked? View.VISIBLE : View.GONE}'
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"/>
 
                         <CheckBox
                             android:id="@+id/kcs2q5010"
