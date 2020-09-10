@@ -942,18 +942,20 @@ public class Form extends LiveData<Form> {
             json.put(FormsTable.COLUMN_FORMDATE, this.formdate == null ? JSONObject.NULL : this.formdate);
             json.put(FormsTable.COLUMN_FORMTYPE, this.formType == null ? JSONObject.NULL : this.formType);
             json.put(FormsTable.COLUMN_PID, this.pid == null ? JSONObject.NULL : this.pid);
-            json.put(FormsTable.COLUMN_S1Q1, this.s1q1 == null ? JSONObject.NULL : this.s1q1);
-            json.put(FormsTable.COLUMN_S1Q2, this.s1q2 == null ? JSONObject.NULL : this.s1q2);
+
+            if (this.sB != null && !this.sB.equals("")) {
+                json.put(FormsTable.COLUMN_SB, new JSONObject(this.sB));
+            }
 
             if (this.formType.equals("1")) {
+                json.put(FormsTable.COLUMN_S1Q1, this.s1q1 == null ? JSONObject.NULL : this.s1q1);
+                json.put(FormsTable.COLUMN_S1Q2, this.s1q2 == null ? JSONObject.NULL : this.s1q2);
                 json.put(FormsTable.COLUMN_S1Q3, this.s1q3 == null ? JSONObject.NULL : this.s1q3);
                 json.put(FormsTable.COLUMN_S1Q4, this.s1q4 == null ? JSONObject.NULL : this.s1q4);
                 json.put(FormsTable.COLUMN_S1Q5, this.s1q5 == null ? JSONObject.NULL : this.s1q5);
                 json.put(FormsTable.COLUMN_S1Q6, this.s1q6 == null ? JSONObject.NULL : this.s1q6);
-            }
 
-            if (this.sB != null && !this.sB.equals("")) {
-                json.put(FormsTable.COLUMN_SB, new JSONObject(this.sB));
+                json.put(FormsTable.COLUMN_SB, new JSONObject(sBtoString()));
             }
 
             json.put(FormsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
