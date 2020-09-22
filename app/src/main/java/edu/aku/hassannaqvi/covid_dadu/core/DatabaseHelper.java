@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.google.android.gms.common.internal.Asserts;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,6 +18,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import edu.aku.hassannaqvi.covid_dadu.contracts.BLRandomContract.BLRandomTable;
 import edu.aku.hassannaqvi.covid_dadu.contracts.FUPContract;
@@ -31,6 +34,7 @@ import edu.aku.hassannaqvi.covid_dadu.models.VersionApp;
 
 import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.DATABASE_VERSION;
+import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.SQL_ALTER_FORMS01;
 import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.SQL_CREATE_BL_RANDOM;
 import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.covid_dadu.utils.CreateTable.SQL_CREATE_FUP;
@@ -51,7 +55,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
         db.execSQL(SQL_CREATE_BL_RANDOM);
@@ -61,9 +64,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion == 1)
-            db.execSQL(SQL_CREATE_FUP);
+        switch (oldVersion) {
+            case 1:
+                db.execSQL(SQL_CREATE_FUP);
+            case 2:
+                String prvTbName = "covid";
+                if (getTableNames(db, prvTbName)) {
+                    db.execSQL("ALTER TABLE " + prvTbName + " RENAME TO " + FormsTable.TABLE_NAME_FORMS);
+                    db.execSQL(SQL_ALTER_FORMS01);
+                }
+        }
     }
+
+    private boolean getTableNames(SQLiteDatabase db, String name) {
+        Cursor c = db.rawQuery(
+                "SELECT name FROM sqlite_master WHERE type='table'", null);
+        Asserts.checkNotNull(c);
+
+        List<String> actual = new ArrayList<>();
+        if (c.moveToFirst()) {
+            while (!c.isAfterLast()) {
+                actual.add(c.getString(0));
+                c.moveToNext();
+            }
+        }
+        c.close();
+
+        if (actual.size() == 0) return false;
+        return actual.contains(name);
+    }
+
 
     public int syncBLRandom(JSONArray blList) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -465,8 +495,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String whereClause = FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " == ''";
         String[] whereArgs = null;
         if (formType != 0) {
-            whereClause = "(" + FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " == '') AND " + FormsTable.COLUMN_FORMTYPE + "=?";
-            whereArgs = new String[]{String.valueOf(formType)};
+            if (formType == 1) {
+                whereClause = "(" + FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " == '') AND (" + FormsTable.COLUMN_FORMTYPE + "=? OR " + FormsTable.COLUMN_FORMTYPE + " is null)";
+                whereArgs = new String[]{String.valueOf(formType)};
+            } else {
+                whereClause = "(" + FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " == '') AND " + FormsTable.COLUMN_FORMTYPE + "=?";
+                whereArgs = new String[]{String.valueOf(formType)};
+            }
         }
         String groupBy = null;
         String having = null;
@@ -545,7 +580,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 form.setUsername(c.getString(c.getColumnIndex(FormsTable.COLUMN_USERNAME)));
                 form.setSysdate(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYSDATE)));
                 form.setFormdate(c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMDATE)));
-                form.setFormType(c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMTYPE)));
+                String formValue = c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMTYPE));
+                form.setFormType(formValue == null ? "1" : formValue);
                 form.setPid(c.getString(c.getColumnIndex(FormsTable.COLUMN_PID)));
                 form.setS1q1(c.getString(c.getColumnIndex(FormsTable.COLUMN_S1Q1)));
                 form.setS1q2(c.getString(c.getColumnIndex(FormsTable.COLUMN_S1Q2)));

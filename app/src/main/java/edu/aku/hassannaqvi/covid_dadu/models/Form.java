@@ -848,7 +848,7 @@ public class Form extends LiveData<Form> {
         this.devicetagID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICETAGID));
         this.appversion = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_APPVERSION));
 
-        if (this.formType.equals("1"))
+        if (this.formType == null || this.formType.equals("1"))
             sBHydrate(cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SB)));
         else
             this.sB = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SB));
@@ -863,7 +863,7 @@ public class Form extends LiveData<Form> {
         return new GsonBuilder().create().toJson(this, Form.class);
     }
 
-    public String sBtoString() {
+    public String sBtoString(boolean flag) {
         JSONObject json = new JSONObject();
 
         try {
@@ -899,7 +899,6 @@ public class Form extends LiveData<Form> {
                     .put("s2q115x", s2q115x)
                     .put("s2q116", s2q116)
                     .put("s2q116x", s2q116x)
-                    .put("s2q197", s2q197)
                     .put("s2q2", s2q2)
                     .put("s2q3", s2q3)
                     .put("s2q31", s2q31)
@@ -917,12 +916,14 @@ public class Form extends LiveData<Form> {
                     .put("s2q509", s2q509)
                     .put("s2q596", s2q596)
                     .put("s2q596x", s2q596x)
-                    .put("s2q597", s2q597)
                     .put("s2q6", s2q6)
                     .put("s2q7", s2q7)
                     .put("appversion", appversion)
                     /*.put("s2q71", s2q71)
                     .put("s2q72", s2q72)*/;
+            if (flag) {
+                json.put("s2q597", s2q597).put("s2q197", s2q197);
+            }
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -947,7 +948,7 @@ public class Form extends LiveData<Form> {
                 json.put(FormsTable.COLUMN_SB, new JSONObject(this.sB));
             }
 
-            if (this.formType.equals("1")) {
+            if (this.formType == null || this.formType.equals("1")) {
                 json.put(FormsTable.COLUMN_S1Q1, this.s1q1 == null ? JSONObject.NULL : this.s1q1);
                 json.put(FormsTable.COLUMN_S1Q2, this.s1q2 == null ? JSONObject.NULL : this.s1q2);
                 json.put(FormsTable.COLUMN_S1Q3, this.s1q3 == null ? JSONObject.NULL : this.s1q3);
@@ -955,7 +956,7 @@ public class Form extends LiveData<Form> {
                 json.put(FormsTable.COLUMN_S1Q5, this.s1q5 == null ? JSONObject.NULL : this.s1q5);
                 json.put(FormsTable.COLUMN_S1Q6, this.s1q6 == null ? JSONObject.NULL : this.s1q6);
 
-                json.put(FormsTable.COLUMN_SB, new JSONObject(sBtoString()));
+                json.put(FormsTable.COLUMN_SB, new JSONObject(sBtoString(this.formType != null)));
             }
 
             json.put(FormsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
@@ -1015,7 +1016,6 @@ public class Form extends LiveData<Form> {
                 this.s2q115x = json.getString("s2q115x");
                 this.s2q116 = json.getString("s2q116");
                 this.s2q116x = json.getString("s2q116x");
-                this.s2q197 = json.getString("s2q197");
                 this.s2q2 = json.getString("s2q2");
                 this.s2q3 = json.getString("s2q3");
                 this.s2q31 = json.getString("s2q31");
@@ -1033,11 +1033,15 @@ public class Form extends LiveData<Form> {
                 this.s2q509 = json.getString("s2q509");
                 this.s2q596 = json.getString("s2q596");
                 this.s2q596x = json.getString("s2q596x");
-                this.s2q597 = json.getString("s2q597");
                 this.s2q6 = json.getString("s2q6");
                 this.s2q7 = json.getString("s2q7");
                 /*this.s2q71 = json.getString("s2q71");
                 this.s2q72 = json.getString("s2q72");*/
+
+                if (this.formType != null) {
+                    this.s2q197 = json.getString("s2q197");
+                    this.s2q597 = json.getString("s2q597");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();

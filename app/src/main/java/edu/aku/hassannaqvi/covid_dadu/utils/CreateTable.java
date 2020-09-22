@@ -11,7 +11,7 @@ public final class CreateTable {
     public static final String DATABASE_NAME = "covid_dadu.db";
     public static final String DB_NAME = "covid_dadu_copy.db";
     public static final String PROJECT_NAME = "covid_dadu";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
 
     public static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsTable.TABLE_NAME_FORMS + "("
@@ -43,6 +43,10 @@ public final class CreateTable {
             + FormsTable.COLUMN_SYNCED + " TEXT,"
             + FormsTable.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
+
+    public static final String SQL_ALTER_FORMS01 = "ALTER TABLE " +
+            FormsTable.TABLE_NAME_FORMS + " ADD COLUMN " +
+            FormsTable.COLUMN_FORMTYPE + " TEXT";
 
     public static final String SQL_CREATE_USERS = "CREATE TABLE " + UsersTable.TABLE_NAME + "("
             + UsersTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -82,12 +86,7 @@ public final class CreateTable {
             FUPContract.FUPTable.COLUMN_ISTATUS + " TEXT, " +
             FUPContract.FUPTable.COLUMN_S2Q7 + " TEXT " +
             ");";
-
-
-/*    public static final String SQL_ALTER_FORMS = "ALTER TABLE " +
-            FormsTable.TABLE_NAME + " ADD COLUMN " +
-            FormsTable.COLUMN_SYSDATE + " TEXT";
-    public static final String SQL_ALTER_CHILD_TABLE = "ALTER TABLE " +
+/*    public static final String SQL_ALTER_CHILD_TABLE = "ALTER TABLE " +
             ChildTable.TABLE_NAME + " ADD COLUMN " +
             ChildTable.COLUMN_SYSDATE + " TEXT";*/
 }
