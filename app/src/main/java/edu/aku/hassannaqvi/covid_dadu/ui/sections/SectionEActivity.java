@@ -154,10 +154,15 @@ public class SectionEActivity extends AppCompatActivity {
                 : bi.fus1q302.isChecked() ? "2"
                 : "-1");
 
+        json.put("fus1q3a", bi.fus1q3a01.isChecked() ? "1"
+                : bi.fus1q3a02.isChecked() ? "2"
+                : bi.fus1q3a96.isChecked() ? "96"
+                : "-1");
+        json.put("fus1q3a96x", bi.fus1q3a96x.getText().toString());
+
         json.put("fus1q4", bi.fus1q401.isChecked() ? "1"
                 : bi.fus1q402.isChecked() ? "2"
                 : "-1");
-
         json.put("fus1q5", bi.fus1q5.getText().toString());
 
         form.setsB(String.valueOf(json));

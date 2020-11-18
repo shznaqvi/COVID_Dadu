@@ -397,6 +397,11 @@
     <string name="fus1q3">ڇا پي سي آر ٽيسٽ ڪرائي وئي آهي؟ </string>
     <string name="fus1q301">ها</string>
     <string name="fus1q302">نه</string>
+    <string name="fus1q3a">جيڪڏهن نه ته، مهرباني ڪري سبب بيان ڪريو؟ </string>
+    <string name="fus1q3a01">انڪار ڪيو </string>
+    <string name="fus1q3a02">صحت مرڪز تي عارضي طور تي پي سي آر ٽيسٽ جي سهولت نه آهي </string>
+    <string name="fus1q3a96">ٻيو ڪو </string>
+    <string name="fus1q3a96x"> وضاحت ڪريو </string>
     <string name="fus1q4">جيڪڏهن ها، ته ڇا نتيجو پازيٽو هو؟ </string>
     <string name="fus1q401">ها</string>
     <string name="fus1q402">نه </string>
@@ -404,6 +409,7 @@
     <string name='Q_fus1q1'>fus1q1</string>
     <string name='Q_fus1q2'>fus1q2</string>
     <string name='Q_fus1q3'>fus1q3</string>
+    <string name='Q_fus1q3a'>fus1q3a</string>
     <string name='Q_fus1q4'>fus1q4</string>
     <string name='Q_fus1q5'>fus1q5</string>
 
