@@ -482,7 +482,7 @@
                                     android:id="@+id/fus1q3a96x"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789"
+                                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
                                     android:hint="@string/fus1q3a96x"
                                     android:inputType="text"
                                     android:tag="fus1q3a96"
