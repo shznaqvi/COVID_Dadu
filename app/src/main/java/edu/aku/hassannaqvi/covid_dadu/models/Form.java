@@ -39,6 +39,7 @@ public class Form extends LiveData<Form> {
     private String sB = "";
     private String formType = "";
 
+    private String s1q0 = "";
     private String s1q1 = "";
     private String s1q2 = "";
     private String s1q3 = "";
@@ -147,6 +148,15 @@ public class Form extends LiveData<Form> {
 
     public void setS1q1(String s1q1) {
         this.s1q1 = s1q1;
+    }
+
+
+    public String getS1q0() {
+        return s1q0;
+    }
+
+    public void setS1q0(String s1q0) {
+        this.s1q0 = s1q0;
     }
 
 
@@ -832,6 +842,7 @@ public class Form extends LiveData<Form> {
         this.formType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMTYPE));
         this.pid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_PID));
         this.s1q1 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_S1Q1));
+        this.s1q0 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_S1Q0));
         this.s1q2 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_S1Q2));
         this.s1q3 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_S1Q3));
         this.s1q4 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_S1Q4));
@@ -949,6 +960,7 @@ public class Form extends LiveData<Form> {
             }
 
             if (this.formType == null || this.formType.equals("1")) {
+                json.put(FormsTable.COLUMN_S1Q0, this.s1q0 == null ? JSONObject.NULL : this.s1q0);
                 json.put(FormsTable.COLUMN_S1Q1, this.s1q1 == null ? JSONObject.NULL : this.s1q1);
                 json.put(FormsTable.COLUMN_S1Q2, this.s1q2 == null ? JSONObject.NULL : this.s1q2);
                 json.put(FormsTable.COLUMN_S1Q3, this.s1q3 == null ? JSONObject.NULL : this.s1q3);

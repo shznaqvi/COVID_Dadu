@@ -76,6 +76,9 @@ public class SectionAActivity extends AppCompatActivity {
         form.setAppversion(MainApp.appInfo.getAppVersion());
         form.setFormType("1");
 
+        form.setS1q0(bi.s1q001.isChecked() ? "1"
+                : bi.s1q002.isChecked() ? "2"
+                : "-1");
         form.setS1q1(bi.s1q1.getText().toString());
         form.setS1q2(bi.s1q201.isChecked() ? "1"
                 : bi.s1q202.isChecked() ? "2"

@@ -188,6 +188,9 @@
     <string name="newHHheadname"> نیا سربراہ کا نام </string>
     <string name="formdate"> تاريخ</string>
     <string name="pid"> حصو وٺندڙ جي سڃاڻپ</string>
+    <string name="s1q0">جاچ پڙتال واري جاءِ </string>
+    <string name="s1q001">ٽي ايڇ ڪيو جوهي </string>
+    <string name="s1q002">ڊي ايڇ ڪيو دادو </string>
     <string name="s1q1">مرِيض جو نالو </string>
     <string name="s1q2">جنس</string>
     <string name="s1q201">مرد </string>
@@ -290,6 +293,7 @@
     <string name='Q_h'>h</string>
     <string name='Q_i'>i</string>
     <string name='Q_pid'>pid</string>
+    <string name='Q_s1q0'>s1q0</string>
     <string name='Q_s1q1'>s1q1</string>
     <string name='Q_s1q2'>s1q2</string>
     <string name='Q_s1q3'>s1q3</string>
@@ -310,6 +314,9 @@
     <string name='Q_s2q7_title'>s2q7_title</string>
     <string name='Q_sno'>sno</string>
 
+    <string name="kcs1hf">جاچ پڙتال واري جاءِ </string>
+    <string name="kcs1hf01">ٽي ايڇ ڪيو جوهي </string>
+    <string name="kcs1hf02">ڊي ايڇ ڪيو دادو </string>
     <string name="kcs1q0"> ٽيسٽ جو قسم </string>
     <string name="kcs1q01">پري ٽيسٽ</string>
     <string name="kcs1q02">پوسٽ ٽيسٽ</string>
@@ -351,6 +358,7 @@
     <string name="kcs1q308">ڇڪ ڏيڻ جي وقت ٺونٺ ڏيڻ يا ٽشو يا رومال جو استعمال</string>
     <string name="kcs1q396">ٻيو ڪجھ </string>
     <string name="kcs1q3010">پاڻ کي الڳ رکڻ </string>
+    <string name='Q_kcs1hf'>kcs1hf</string>
     <string name='Q_kcs1q0'>kcs1q0</string>
     <string name='Q_kcs1q1'>kcs1q1</string>
     <string name='Q_kcs1q2'>kcs1q2</string>
@@ -390,6 +398,9 @@
     <string name='Q_kcs2q4_title'>kcs2q4_title</string>
     <string name='Q_kcs2q5'>kcs2q5</string>
     <string name='Q_kcs2q5_title'>kcs2q5_title</string>
+    <string name="fus1q0">جاچ پڙتال واري جاءِ </string>
+    <string name="fus1q001">ٽي ايڇ ڪيو جوهي </string>
+    <string name="fus1q002">ڊي ايڇ ڪيو دادو </string>
     <string name="fus1q1">مرِيض جو نالو</string>
     <string name="fus1q2">جنس</string>
     <string name="fus1q201">مرد </string>
@@ -406,6 +417,7 @@
     <string name="fus1q401">ها</string>
     <string name="fus1q402">نه </string>
     <string name="fus1q5">ٽيسٽ جي تاريخ لکو</string>
+    <string name='Q_fus1q0'>fus1q0</string>
     <string name='Q_fus1q1'>fus1q1</string>
     <string name='Q_fus1q2'>fus1q2</string>
     <string name='Q_fus1q3'>fus1q3</string>

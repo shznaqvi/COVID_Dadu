@@ -18,11 +18,19 @@ public class FUP {
     String sex;
     String istatus;
     String s2q7;
+    String hf;
 
     public FUP() {
         // Default Constructor
     }
 
+    public String getHf() {
+        return hf;
+    }
+
+    public void setHf(String hf) {
+        this.hf = hf;
+    }
 
     public String getLuid() {
         return luid;
@@ -80,24 +88,6 @@ public class FUP {
         this.s2q7 = s2q7;
     }
 
-    public JSONObject toJSONObject() {
-
-        JSONObject json = new JSONObject();
-        try {
-            json.put(FUPContract.FUPTable.COLUMN_LUID, this.luid == null ? JSONObject.NULL : this.luid);
-            json.put(FUPContract.FUPTable.COLUMN_SYSDATE, this.sysdate == null ? JSONObject.NULL : this.sysdate);
-            json.put(FUPContract.FUPTable.COLUMN_PID, this.pid == null ? JSONObject.NULL : this.pid);
-            json.put(FUPContract.FUPTable.COLUMN_PATIENT, this.patient == null ? JSONObject.NULL : this.patient);
-            json.put(FUPContract.FUPTable.COLUMN_SEX, this.sex == null ? JSONObject.NULL : this.sex);
-            json.put(FUPContract.FUPTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
-            json.put(FUPContract.FUPTable.COLUMN_S2Q7, this.s2q7 == null ? JSONObject.NULL : this.s2q7);
-            return json;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
     public FUP Sync(JSONObject jsonObject) throws JSONException {
         this.luid = jsonObject.getString(FUPContract.FUPTable.COLUMN_LUID);
         this.sysdate = jsonObject.getString(FUPContract.FUPTable.COLUMN_SYSDATE);
@@ -106,6 +96,7 @@ public class FUP {
         this.sex = jsonObject.getString(FUPContract.FUPTable.COLUMN_SEX);
         this.istatus = jsonObject.getString(FUPContract.FUPTable.COLUMN_ISTATUS);
         this.s2q7 = jsonObject.getString(FUPContract.FUPTable.COLUMN_S2Q7);
+        this.hf = jsonObject.getString(FUPContract.FUPTable.COLUMN_HF);
 
         return this;
     }
@@ -118,6 +109,7 @@ public class FUP {
         this.sex = cursor.getString(cursor.getColumnIndex(FUPContract.FUPTable.COLUMN_SEX));
         this.istatus = cursor.getString(cursor.getColumnIndex(FUPContract.FUPTable.COLUMN_ISTATUS));
         this.s2q7 = cursor.getString(cursor.getColumnIndex(FUPContract.FUPTable.COLUMN_S2Q7));
+        this.hf = cursor.getString(cursor.getColumnIndex(FUPContract.FUPTable.COLUMN_HF));
 
         return this;
     }

@@ -16,6 +16,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import edu.aku.hassannaqvi.covid_dadu.R;
 import edu.aku.hassannaqvi.covid_dadu.contracts.FormsContract;
@@ -26,7 +27,10 @@ import edu.aku.hassannaqvi.covid_dadu.models.FUP;
 import edu.aku.hassannaqvi.covid_dadu.models.Form;
 import edu.aku.hassannaqvi.covid_dadu.ui.other.EndingActivity;
 import io.reactivex.Observable;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static edu.aku.hassannaqvi.covid_dadu.core.MainApp.form;
@@ -81,19 +85,39 @@ public class SectionEActivity extends AppCompatActivity {
         getSpecificFUP()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(fupcontract -> {
-                    fup = fupcontract;
-                    setupFields(View.VISIBLE);
-                    bi.fus1q1.setText(fup.getPatient());
-                    Clear.clearRadioGroup(bi.fus1q2, false);
-                    bi.fus1q2.check(fup.getSex().equals("1") ? bi.fus1q201.getId() : bi.fus1q202.getId());
+                .subscribe(new Observer<FUP>() {
+                    Disposable disposable;
 
-                    String[] dt = fup.getSysdate().split(" ");
-                    bi.fus1q5.setMinDate(dt[0].replace("-20", "-2020").replace("-", "/"));
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        disposable = d;
+                    }
 
-                }, error -> {
-                    Toast.makeText(this, "No Follow up found!!", Toast.LENGTH_SHORT).show();
-                    setupFields(View.GONE);
+                    @Override
+                    public void onNext(@NonNull FUP fupcontract) {
+                        fup = fupcontract;
+                        setupFields(View.VISIBLE);
+                        bi.fus1q1.setText(fup.getPatient());
+                        Clear.clearRadioGroup(bi.fus1q2, false);
+                        bi.fus1q2.check(fup.getSex().equals("1") ? bi.fus1q201.getId() : bi.fus1q202.getId());
+                        Clear.clearRadioGroup(bi.fus1q0, false);
+                        bi.fus1q0.check(fup.getHf().equals("1") ? bi.fus1q001.getId() : bi.fus1q002.getId());
+
+                        String[] dt = fup.getSysdate().split(" ");
+                        bi.fus1q5.setMinDate(dt[0].replace("-20", "-2020").replace("-", "/"));
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        Toast.makeText(SectionEActivity.this, "No Follow up found!!", Toast.LENGTH_SHORT).show();
+                        setupFields(View.GONE);
+                        disposable.dispose();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        disposable.dispose();
+                    }
                 });
     }
 
@@ -131,18 +155,22 @@ public class SectionEActivity extends AppCompatActivity {
     private void SaveDraft() throws JSONException {
 
         form = new Form();
-        form.setSysdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        form.setSysdate(new SimpleDateFormat("dd-MM-yy HH:mm", Locale.ENGLISH).format(new Date().getTime()));
         form.setUsername(MainApp.userName);
         form.setDeviceID(MainApp.appInfo.getDeviceID());
         form.setDevicetagID(MainApp.appInfo.getTagName());
         form.setAppversion(MainApp.appInfo.getAppVersion());
-        form.setFormdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        form.setFormdate(new SimpleDateFormat("dd-MM-yy HH:mm", Locale.ENGLISH).format(new Date().getTime()));
         form.setPid(bi.pid.getText().toString());
         form.setFormType("3");
 
         JSONObject json = new JSONObject();
 
         json.put("luid", fup.getLuid());
+
+        json.put("fus1q0", bi.fus1q001.isChecked() ? "1"
+                : bi.fus1q002.isChecked() ? "2"
+                : "-1");
 
         json.put("fus1q1", bi.fus1q1.getText().toString());
 

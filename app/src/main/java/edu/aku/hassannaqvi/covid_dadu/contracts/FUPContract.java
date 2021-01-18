@@ -25,6 +25,7 @@ public class FUPContract {
         public static final String COLUMN_SEX = "sex";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_S2Q7 = "s2q7";
+        public static final String COLUMN_HF = "hf";
 
         public static String PATH = "fup";
 

@@ -108,11 +108,66 @@
                         android:gravity="center"
                         android:hint="####"
                         android:inputType="number"
-                        android:maxLength="4"
-                        app:maxValue="9999"
+                        android:maxLength="5"
+                        app:maxValue="99999"
                         app:minValue="1"
-                        app:pattern="[0-9]{4}"
+                        app:pattern="[0-9]{5}"
                         app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- kcs1hf  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVkcs1hf"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/qtxt_kcs1hf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_kcs1hf"
+                            android:text="@string/kcs1hf" />
+
+                        <TextView
+                            android:id="@+id/q_kcs1hf"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_kcs1hf"
+                            android:layout_alignBottom="@id/qtxt_kcs1hf"
+                            android:text="@string/Q_kcs1hf" />
+
+                    </RelativeLayout>
+
+
+                    <RadioGroup
+                        android:id="@+id/kcs1hf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/kcs1hf01"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/kcs1hf01" />
+
+                        <RadioButton
+                            android:id="@+id/kcs1hf02"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/kcs1hf02" />
+
+                    </RadioGroup>
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
