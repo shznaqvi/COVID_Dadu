@@ -40,19 +40,11 @@ public class SectionBActivity extends AppCompatActivity {
         bi.s2q3.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVs2q31));
 
         bi.s2q197.setOnCheckedChangeListener((compoundButton, b) -> {
-            if (b) {
-                Clear.clearAllFields(bi.s2q1check, false);
-            } else {
-                Clear.clearAllFields(bi.s2q1check, true);
-            }
+            Clear.clearAllFields(bi.s2q1check, !b);
         });
 
         bi.s2q597.setOnCheckedChangeListener((compoundButton, b) -> {
-            if (b) {
-                Clear.clearAllFields(bi.s2q5check, false);
-            } else {
-                Clear.clearAllFields(bi.s2q5check, true);
-            }
+            Clear.clearAllFields(bi.s2q5check, !b);
         });
     }
 
@@ -64,7 +56,7 @@ public class SectionBActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry! Failed to update DB)", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -75,7 +67,7 @@ public class SectionBActivity extends AppCompatActivity {
         if (updcount > 0) {
             return true;
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry! Failed to update DB)", Toast.LENGTH_SHORT).show();
             return false;
         }
     }

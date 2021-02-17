@@ -34,7 +34,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static edu.aku.hassannaqvi.covid_dadu.core.MainApp.form;
-import static edu.aku.hassannaqvi.covid_dadu.core.MainApp.setGPS;
 
 public class SectionEActivity extends AppCompatActivity {
 
@@ -75,7 +74,7 @@ public class SectionEActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry! Failed to update DB)", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -146,7 +145,7 @@ public class SectionEActivity extends AppCompatActivity {
             db.updatesFormColumn(FormsContract.FormsTable.COLUMN_UID, form.get_UID());
             return true;
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry! Failed to update DB)", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -194,7 +193,7 @@ public class SectionEActivity extends AppCompatActivity {
         json.put("fus1q5", bi.fus1q5.getText().toString());
 
         form.setsB(String.valueOf(json));
-        setGPS(this);
+        //setGPS(this);
 
     }
 
