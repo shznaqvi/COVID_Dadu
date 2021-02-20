@@ -43,7 +43,7 @@ public class SectionAActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, SectionBActivity.class));
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry! Failed to update DB)", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -58,7 +58,7 @@ public class SectionAActivity extends AppCompatActivity {
             db.updatesFormColumn(FormsContract.FormsTable.COLUMN_UID, form.get_UID());
             return true;
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry! Failed to update DB)", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -87,7 +87,7 @@ public class SectionAActivity extends AppCompatActivity {
         form.setS1q4(bi.s1q4.getText().toString());
         form.setS1q5(bi.s1q5.getText().toString());
         form.setS1q6(bi.s1q6.getText().toString());
-        MainApp.setGPS(this);
+        //MainApp.setGPS(this);
 
     }
 

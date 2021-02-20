@@ -53,7 +53,7 @@ public class SectionDActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry! Failed to update DB)", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -63,7 +63,7 @@ public class SectionDActivity extends AppCompatActivity {
         if (updcount == 1) {
             return true;
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry! Failed to update DB)", Toast.LENGTH_SHORT).show();
             return false;
         }
     }

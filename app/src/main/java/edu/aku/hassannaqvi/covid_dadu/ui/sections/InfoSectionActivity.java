@@ -72,7 +72,7 @@ public class InfoSectionActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, EndingActivity.class));
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry! Failed to update DB)", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -87,7 +87,7 @@ public class InfoSectionActivity extends AppCompatActivity {
             db.updatesFormColumn(FormsContract.FormsTable.COLUMN_UID, form.get_UID());
             return true;
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry! Failed to update DB)", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
